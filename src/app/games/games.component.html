@@ -1,0 +1,22 @@
+<div class="our_courses py_8 section" id="section-2">
+    <div class="container">
+      <div class="theme_heading text-center">
+        <h2>Games</h2>
+        <p>
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque pariatur, fugit quia unde culpa sunt odit. Beatae tenetur qui harum expedita molestias voluptatem odit, impedit, veritatis corporis perferendis, iste aspernatur!
+        </p>
+      </div>
+      <div class="card-grid" >
+        
+        <a class="card"  [routerLink]="['/booking']" routerLinkActive="router-link-active"  *ngFor="let item of items">
+          <div class="card__background" style="background-image: url({{item.cardBackground}})"></div>
+          <div class="card__content">
+            <p class="card__category">{{item.cardCategory}}</p>
+            <h3 class="card__heading">{{item.cardTitle}}</h3>
+          </div>
+        </a>
+      </div>
+      </div>
+      
+
+

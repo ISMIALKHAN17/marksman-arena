@@ -1,0 +1,4 @@
+
+<app-inner-banner></app-inner-banner>
+<app-booking-form (formSent)="onFormSent()" *ngIf="!isFormSent"></app-booking-form>
+<app-slots *ngIf="isFormSent"></app-slots>

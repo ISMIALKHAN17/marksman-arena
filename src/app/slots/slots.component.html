@@ -1,0 +1,64 @@
+
+  <section class="book-now-sec py_8">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <app-date-picker></app-date-picker>
+            </div>
+            <div class="col-md-6 centerCol">
+                <div class="select-time">
+                    <span>Select Time Slot</span>
+                    <div class="time-box-wrp">
+                        <div class="time-btn" *ngFor="let time of timeSlot"  (click)="open(content)">
+                          <input type="radio" name="time">
+                          <span>{{time.time}}</span>
+                        </div>
+                    </div>
+                    <a href="" class="btn-lg-mo">Reserve Your Seats <i class="fa-solid fa-angle-right"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<ng-template #content let-modal>
+	<div class="modal-body">
+        <div class="modal-content">
+            <div class="text-center">
+              <h2>Select Slots</h2>
+              <p><span id="slot-date"></span> - <span id="slot-time"></span></p>
+              <h4>Team 1</h4>
+            </div>
+            <ul class="slots">
+              <li *ngFor="let seat of seats">
+                <input id="{{seat.label}}" type="checkbox" (change)="checkseats()">
+                <span>select</span>
+              </li>
+            </ul>
+            <div class="text-center">
+              <h2>VS</h2>
+              <h4>Team 2</h4>
+            </div>
+            <ul class="slots">
+              <li *ngFor="let seat of seatsRow2">
+                <input id="{{seat.label}}" (change)="checkseats()" type="checkbox">
+                <span>select</span>
+              </li>
+            </ul>
+  
+            <div class="text-center">
+              <p id="error" class="error"><b>NOTE!</b> For Playing Exclusively, You Have to add more than 3 Players to each  Team, And Teams must be equal</p>
+              <p class="pex"><input disabled="true" type="checkbox" id="ex" for="ex"> <label for="ex">Pay 1000 to reserve Exclusive</label> </p>
+            </div>
+  
+            <ul class="d-flex justify-content-center" style="gap: 10px;">
+              <li>
+                <button (click)="checkseats()" class="theme_btn">Proceed</button>
+              </li>
+            </ul>
+            
+          </div>
+	</div>
+</ng-template>
