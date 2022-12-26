@@ -3,28 +3,38 @@
 
 
    <!-- header strat -->
+ 
    <header>
-    <div class="menuSec">
-      <div class="container">
+    <div class="topbar container-fluid">
+      <ul class="d-flex align-items-center justify-content-end">
+        <li>  <div class="search-box">
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+          <input type="text" class="input-search" placeholder="Type to Search...">
+        </div></li>
+        <li><a href="#">Login</a> | <a href="#">Sign Up</a></li>
+      </ul>
+     </div>
+    <div class="menuSec sticky">
+      <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-md-2 col-sm-6 col-6">
             <a [routerLink]="['home']" routerLinkActive="router-link-active" ><img src="../../../assets/images/logo.png" alt="img" /></a>
           </div>
-          <div class="col-md-6 d-none d-md-block">
+          <div class="col-md-8 d-none d-md-block">
             <ul id="menu">
               <li><a href="index.html">Home</a></li>
               <li><a href="about.html">Gallery</a></li>
+              <li><a href="about.html">leaderboard</a></li>
               <li><a href="service.html">Events</a></li>
-              <li><a href="videos.html">News</a></li>
-              <li><a href="videos.html">Promos</a></li>
+              <li><a href="videos.html">News & Promos</a></li>
+              <li><a href="videos.html">Store</a></li>
+              <li><a href="videos.html">About Us</a></li>
             </ul>
           </div>
-          <div class="col-md-4 col-sm-6 col-6 text-right">
+          <div class="col-md-2 col-sm-6 col-6 text-right">
             <ul class="buttons d-flex align-items-center">
-              <li><a [routerLink]="['booking']" class="theme_btn">Book Now</a></li>
-              <li>
-                <a href="contact.html" class="theme_btn">Loyalty Customers</a>
-              </li>
+              <li><a [routerLink]="['book']" class="theme_btn">Book Now</a></li>
+              
             </ul>
           </div>
         </div>

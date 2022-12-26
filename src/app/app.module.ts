@@ -18,6 +18,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatePickerComponent } from './date-picker/date-picker.component';
+import { BookingPageComponent } from './booking-page/booking-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
     routingComponents,
     HomeComponent,
     BookingFormComponent,
+    BookingPageComponent,
    
     
     

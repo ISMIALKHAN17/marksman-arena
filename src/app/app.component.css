@@ -1,0 +1,87 @@
+#preloader-background, #circle-loader {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    display: -webkit- flex;
+    display: -ms- flex;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+        
+#preloader-background {
+    background: white;
+    height: 100vh;
+}
+@keyframes loader {
+	 0% {
+		 width: 0;
+	}
+	 20% {
+		 width: 10%;
+	}
+	 25% {
+		 width: 24%;
+	}
+	 43% {
+		 width: 41%;
+	}
+	 56% {
+		 width: 50%;
+	}
+	 66% {
+		 width: 52%;
+	}
+	 71% {
+		 width: 60%;
+	}
+	 75% {
+		 width: 76%;
+	}
+	 94% {
+		 width: 86%;
+	}
+	 100% {
+		 width: 100%;
+	}
+}
+ .progress-bar {
+	 border-radius: 60px;
+	 overflow: hidden;
+	 width: 100%;
+}
+ .progress-bar span {
+	 display: block;
+}
+ .bar {
+	 background: rgba(0, 0, 0, 0.075);
+}
+ .progress {
+	 animation: loader 3.5s ease infinite;
+	 background: #B02528;
+	 color: #fff;
+	 padding: 2px;
+	 width: 0;
+}
+ .progress-bar {
+	 left: 50%;
+	 max-width: 20%;
+	 position: absolute;
+	 top: 58%;
+	 transform: translate3d(-50%, -50%, 0);
+   height: 3px;
+}
+ 
+#pageContent {
+    display: none;
+}
+
+div#preloader-background img {
+    width: 200px;
+}
