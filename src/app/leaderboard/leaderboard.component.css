@@ -1,0 +1,156 @@
+.borad_card h3 {
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  background: #b02328;
+  top: -19px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-family: var(--zen-dots);
+  font-weight: 500;
+}
+
+.borad_card {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  text-align: center;
+  background: linear-gradient(45deg, #9d0006, transparent);
+  transition: 0.3s  ;
+}
+
+.borad_card:hover {
+    scale: 1.04;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+}
+
+.winners ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.winners ul li {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.winners ul li > img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 100%;
+  border: 3px solid #b02328;
+}
+
+.winners ul li span,
+.winners ul li p {
+  position: absolute;
+}
+
+.winners ul li span {
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #898989;
+  border-radius: 100%;
+  left: 8px;
+  top: -7px;
+  color: #fff;
+}
+
+.winners ul li p {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.winners {
+  margin: 60px 0px;
+  margin-bottom: 70px;
+}
+
+.winners ul li.winner1 {
+  margin-top: -19px;
+  transform: scale(1.4);
+  position: relative;
+  z-index: 11;
+}
+
+.winners ul li.winner1 span {
+  background: transparent;
+  left: unset;
+  right: -20px;
+  width: 100%;
+  top: -10px;
+}
+
+.winners ul li.winner1 span img {
+  transform: rotate(25deg);
+  width: 53%;
+}
+
+.winners ul li.winner1 img {
+  border-color: orange;
+}
+
+.winners ul li.winner1 {
+  color: orange;
+}
+
+.borad_card td {
+  text-align: center;
+}
+
+.borad_card tabel {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  height: 300px;
+  overflow: scroll;
+}
+
+table td {
+  padding: 10px 1em;
+  text-align: left !important;
+}
+
+.borad_card tr:nth-child(even) {
+  background: #b0232869;
+}
+
+.borad_card tr:nth-child(odd) {
+  background: #9d0006;
+}
+
+.borad_card thead tr {
+  background: #00487a !important;
+}
+
+
+.borad_card .theme_btn {
+    margin-bottom: -34px;
+    background: #fff;
+    margin-top: 19px;
+}
+.heading_crown{
+    position: relative;
+}
+.heading_crown img{
+    position: absolute;
+    width: 54px;
+    transform: rotate(30deg);
+    top: -10px;
+    right: 421px;
+}

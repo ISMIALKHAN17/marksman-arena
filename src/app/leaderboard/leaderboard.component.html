@@ -1,0 +1,107 @@
+<section class="leaderboard py_8">
+    <div class="container">
+        <div class="theme_heading text-center">
+            <h2 class="heading_crown">Leaderboard <img src="../../assets/images/crown.png" alt=""></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam minus sint sunt odio saepe error, perspiciatis neque. Placeat quibusdam, delectus magnam molestiae itaque consequatur optio nam molestias commodi provident atque!</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="borad_card">
+                    <h3>Paintball</h3>
+                    <div class="winners">
+                        <ul>
+                            <li class="winner2"><span>2</span><img src="../../assets/images/paintball3.webp" alt=""><p>{{paintballRankingData[1].player}}</p></li>
+                            <li class="winner1"><span><img src="../../assets/images/crown.png" alt=""></span><img src="../../assets/images/p6.jpg" alt="">{{paintballRankingData[0].player}}</li>
+                            <li class="winner3"><span>3</span><img src="../../assets/images/paintball2.webp" alt="">{{paintballRankingData[2].player}}</li>
+                        </ul>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>#Rank</td>
+                                <td>Name</td>
+                                <td>P</td>
+                                <td>W</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let rank of paintballRankingData">
+                                <td>#{{rank.rank}}</td>
+                                <td>{{rank.player}}</td>
+                                <td>{{rank.played}}</td>
+                                <td>{{rank.won}}</td>
+                            </tr>
+                        </tbody>
+                       
+                    </table>
+                    <a href="#" class="theme_btn"> See More</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="borad_card">
+                    <h3>Indoor Cricket</h3>
+                    <div class="winners">
+                        <ul>
+                            <li class="winner2"><span>2</span><img src="../../assets/images/cricket.jpg" alt=""><p>{{cricketRankingData[1].player}}</p></li>
+                            <li class="winner1"><span><img src="../../assets/images/crown.png" alt=""></span><img src="../../assets/images/p4.jpg" alt="">{{cricketRankingData[0].player}}</li>
+                            <li class="winner3"><span>3</span><img src="../../assets/images/cricket2.jpg" alt="">{{cricketRankingData[2].player}}</li>
+                        </ul>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>#Rank</td>
+                                <td>Name</td>
+                                <td>P</td>
+                                <td>W</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let rank of cricketRankingData">
+                                <td>#{{rank.rank}}</td>
+                                <td>{{rank.player}}</td>
+                                <td>{{rank.played}}</td>
+                                <td>{{rank.won}}</td>
+                            </tr>
+                        </tbody>
+                       
+                    </table>
+                    <a href="#" class="theme_btn"> See More</a>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="borad_card">
+                    <h3>Airsoft Range</h3>
+                    <div class="winners">
+                        <ul>
+                            <li class="winner2"><span>2</span><img src="../../assets/images/range2.jpg" alt=""><p>{{rangeRankingData[1].player}}</p></li>
+                            <li class="winner1"><span><img src="../../assets/images/crown.png" alt=""></span><img src="../../assets/images/p5.jpg" alt="">{{rangeRankingData[0].player}}</li>
+                            <li class="winner3"><span>3</span><img src="../../assets/images/range3.jpg" alt="">{{rangeRankingData[2].player}}</li>
+                        </ul>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Rank</td>
+                                <td>Name</td>
+                                <td>P</td>
+                                <td>W</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let rank of rangeRankingData">
+                                <td>#{{rank.rank}}</td>
+                                <td>{{rank.player}}</td>
+                                <td>{{rank.played}}</td>
+                                <td>{{rank.won}}</td>
+                            </tr>
+                        </tbody>
+                       
+                    </table>
+                    <a href="#" class="theme_btn"> See More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

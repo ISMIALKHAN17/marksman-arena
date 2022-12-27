@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { BookingPageComponent } from './booking-page/booking-page.component';
     HomeComponent,
     BookingFormComponent,
     BookingPageComponent,
+    GalleryComponent,
+    LeaderboardComponent,
    
     
     

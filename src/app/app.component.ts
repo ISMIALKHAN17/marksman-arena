@@ -13,7 +13,7 @@ ngOnInit(): void {
   
   setTimeout(()=>{                         
     showPage();
-}, 3000);
+}, 300);
 
 function showPage() {
   var preload = document.getElementById("preloader-background")
@@ -21,5 +21,9 @@ function showPage() {
   var page  = document.getElementById("pageContent")
   page!.style.display = "block";
 }
+
+
+
+
 }
 }
