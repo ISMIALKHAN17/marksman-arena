@@ -1,4 +1,4 @@
-<div class="our_courses py_8 section" id="section-2">
+<div class="our_courses py_8 section" id="section-2" data-aos="fade-up">
     <div class="container">
       <div class="theme_heading text-center">
         <h2>Activities</h2>
@@ -8,7 +8,7 @@
       </div>
       <div class="card-grid" >
         
-        <a class="card"  [routerLink]="['/booking']" routerLinkActive="router-link-active"  *ngFor="let item of items">
+        <a class="card"  [routerLink]="['/coming-soon']" routerLinkActive="router-link-active"  *ngFor="let item of items">
           <div class="card__background" style="background-image: url({{item.cardBackground}})"></div>
           <div class="card__content">
             <p class="card__category">{{item.cardCategory}}</p>

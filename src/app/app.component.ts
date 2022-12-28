@@ -13,16 +13,13 @@ ngOnInit(): void {
   
   setTimeout(()=>{                         
     showPage();
-}, 300);
-
+}, 3000);
 function showPage() {
   var preload = document.getElementById("preloader-background")
   preload!.style.display  = "none";
   var page  = document.getElementById("pageContent")
   page!.style.display = "block";
 }
-
-
 
 
 }

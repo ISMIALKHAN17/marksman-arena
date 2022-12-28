@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import * as aos from 'aos';
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
@@ -9,39 +9,45 @@ export class GamesComponent {
   items = [
     {
       cardBackground : '../../../assets/images/service1.png',
-      cardLink : '#',
+      cardLink : 'coming-soon',
       cardCategory : 'Category',
       cardTitle : 'Paint Ball'
     },
     {
       cardBackground : '../../../assets/images/service2.png',
-      cardLink : '#',
+      cardLink : 'coming-soon',
       cardCategory : 'Category',
-      cardTitle : 'Net Cricket'
+      cardTitle : 'Indoor Cricket'
     },
     {
-      cardBackground : '../../../assets/images/service3.jpg',
-      cardLink : '#',
+      cardBackground : '../../../assets/images/GelBlaster.webp',
+      cardLink : 'coming-soon',
       cardCategory : 'Category',
-      cardTitle : 'Tabel Tenis'
+      cardTitle : 'Gel Blaster'
     },
     {
-      cardBackground : '../../../assets/images/service4.jpg',
-      cardLink : '#',
+      cardBackground : '../../../assets/images/range.jpg',
+      cardLink : 'coming-soon',
       cardCategory : 'Category',
-      cardTitle : 'Snoker Club'
+      cardTitle : 'Airsoft Range'
     },
     {
-      cardBackground : '../../../assets/images/service5.jpg',
-      cardLink : '#',
+      cardBackground : '../../../assets/images/archery.jpg',
+      cardLink : 'coming-soon',
       cardCategory : 'Category',
-      cardTitle : 'Indoor Badminton'
+      cardTitle : 'Archery'
     },
     {
       cardBackground : '../../../assets/images/service6.jpg',
-      cardLink : '#',
+      cardLink : 'coming-soon',
       cardCategory : 'Category',
       cardTitle : 'Merchandise'
     },
   ]
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    aos.init({disable: 'mobile'});//AOS - 2
+    aos.refresh();
+  }
 }

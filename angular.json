@@ -31,9 +31,11 @@
               "src/assets/css/fancybox.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/custom-theme.scss",
+              "node_modules/aos/dist/aos.css",
               "src/assets/css/custom.css"
             ],
             "scripts": [
+              "node_modules/aos/dist/aos.js",
               "node_modules/jquery/dist/jquery.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
               "src/assets/js/wow.js",
@@ -48,13 +50,13 @@
               "budgets": [
                 {
                   "type": "initial",
-      "maximumWarning": "2mb",
-      "maximumError": "5mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumError": "100kb"
                 }
               ],
               "outputHashing": "all"

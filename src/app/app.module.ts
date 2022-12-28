@@ -21,12 +21,12 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MainSliderComponent,
     GamesComponent,
     FooterComponent,
     InnerBannerComponent,
@@ -37,6 +37,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     BookingPageComponent,
     GalleryComponent,
     LeaderboardComponent,
+    ComingSoonComponent,
    
     
     
@@ -51,7 +52,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     BrowserAnimationsModule,
     NgbModule,
     DatePickerComponent,
-    SlotsComponent
+    SlotsComponent,
+    MainSliderComponent
  
     
     

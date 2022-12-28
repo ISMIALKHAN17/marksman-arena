@@ -1,0 +1,22 @@
+.banner_text {
+    position: absolute;
+    left: 0;
+    text-align: left;
+}
+
+.banner_slide .carousel-caption {
+    right: unset;
+    top: 40%;
+    bottom: unset;
+    width: 53%;
+}
+
+.banner_slide img {
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+}
+
+.banner_slide {
+    height: calc(100vh - 50px);
+}
