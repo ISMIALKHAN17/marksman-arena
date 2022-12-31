@@ -1,0 +1,17 @@
+.news_slider{
+    height: 600px;
+    position: relative;
+}
+.news_slider img{
+    height: 600px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.news_slider:before{
+    content: '';
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    background:linear-gradient(0deg,#000,transparent);
+}

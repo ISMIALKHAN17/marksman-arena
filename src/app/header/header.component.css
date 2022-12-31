@@ -1,4 +1,98 @@
 .input-search::placeholder{
     color: #fff;
     font-weight: 500;
+    font-size: 14px;
+}
+.sidenav {
+    height: 100%;
+    width: 300px;
+    transform: translatex(-100%);
+    position: fixed;
+    z-index: 999999999;
+    top: 0;
+    left: 0;
+    background-image:url(../../assets/images/paintball3.webp) ;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    transition: 0.5s ease-in-out;
+
+  }
+  .sidenav::before{
+    height: 100%;
+    width: 100%;
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(270deg,#F20000 -28%,transparent 100%);
+    z-index: -1;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .mobile_header {
+    position: absolute;
+    z-index: 1111111;
+    padding: 0px 15px;
+}
+
+.mobile_header .theme_btn {
+    padding: 5px 5px;
+    margin-top: 19px;
+    background: red;
+    color: #Fff;
+    font-size: 12px;
+}
+
+.mobile_header .open {
+    font-size: 25px;
+    margin-top: 14px;
+    display: inline-block;
+}
+
+.mobile_header.sticky.fixed {
+    position: fixed;
+    top: 0;
+    background: #000;
+    padding-bottom: 10px;
+}
+
+.sidenav ul{
+  transform: translatex(-500px);
+  transition: 0.6s ease-in-out;
+}
+.sidenav ul li a {
+  font-size: 16px !important;
+  padding: 4px 23px!important;
+}
+ul.left_ani {
+  transform: translatex(0px) !important;
 }

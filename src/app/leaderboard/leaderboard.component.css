@@ -178,5 +178,23 @@ table td {
   align-items: center;
   justify-content: center;
   top: 0;
-  font-size: 42px;
+  font-size: 30px;
+}
+
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+  .borad_card:after{
+    font-size: 20px;
+  }
+  .theme_heading h2 {
+    display: inline-block;
+}
+@media only screen and (min-width: 300px) and (max-width: 767px){
+  .borad_card:after{
+    font-size: 20px;
+  }
+}
+
+.theme_heading h2 img {right: -25px !important;left: unset;top: -16px !important;}
 }

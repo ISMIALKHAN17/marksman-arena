@@ -283,7 +283,7 @@ h6 {
 }
 .topbar{
   background-color: #F20000;
-  padding: 0px 60px;
+  padding: 0px 10px;
 }
 .topbar ul{
   margin: 0px;
@@ -1583,4 +1583,92 @@ ul.slots li input:checked+span{
 
 /* book now  */
 
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
 
+body{
+  font-size: 14px !important;
+}
+
+
+
+
+.menuSec ul {
+  gap: 11px;
+}
+
+.theme_btn {
+  padding: 10px;
+}
+
+.menuSec ul {
+  margin: 0;
+}
+
+.borad_card:after {
+  font-size: 31px;
+}
+
+footer .container-fluid{
+  padding: 0px 10px;
+}
+
+.footer_inner p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footer_inner2 ul li a {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.footer_inner2 ul li i {
+  height: 30px;
+  width: 30px;
+}
+
+.footer_inner4 ul li span {
+  font-size: 13px;
+}
+
+section.inner_banner h2 {
+  font-size: 43px;
+}
+
+.theme_heading h2 {
+  font-size: 29px;
+}
+}
+
+
+@media only screen and (min-width: 300px) and (max-width: 767px){
+
+  body{
+    font-size: 14px;
+  }
+  html{
+    overflow-x: hidden;
+  }
+  .btn-search:focus ~ .input-search{
+    width: 177px;}
+  .card-grid .card {
+    margin-bottom: 20px;
+}
+  .theme_btn {
+    padding: 5px;
+  }
+  
+  .menuSec {
+    padding: 12px 13px;
+  }
+  
+  .banner_text h1 {
+    font-size: 40px;
+  }
+  .theme_heading h2{
+    font-size: 25px;
+  }
+  footer .container-fluid {
+    padding: 16px;
+}
+}  

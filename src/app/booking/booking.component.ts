@@ -7,7 +7,10 @@ import { Component } from '@angular/core';
 })
 export class BookingComponent {
   isFormSent = false;
-
+  mainText;
+  constructor (){
+    this.mainText = 'Booking'
+  }
   onFormSent () {
      this.isFormSent = true;
   }

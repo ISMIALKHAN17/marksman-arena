@@ -14,7 +14,7 @@
         <li><a href="#">Login</a> | <a href="#">Sign Up</a></li>
       </ul>
      </div>
-    <div class="menuSec sticky">
+    <div class="menuSec sticky d-none d-md-block">
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-md-2 col-sm-6 col-6">
@@ -40,5 +40,32 @@
         </div>
       </div>
     </div>
+
   </header>
   <!-- header strat -->
+
+  <div class="mobile_header sticky d-block d-md-none">
+    <div class="row align-items-center">
+      <div class="col-2">
+        <a  class="open"><i class="fa-solid fa-bars"></i></a>
+      </div>
+      <div class="col-6">
+        <img src="../../assets/images/logo.png" alt="">
+      </div>
+      <div class="col-4">
+        <a [routerLink]="['book']" class="theme_btn">Book Now</a>
+      </div>
+    </div>
+  </div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn closebtn1">&times;</a>
+    <ul>
+      <li><a routerLink="/home">Home</a></li>
+              <li><a class="closebtn1" routerLink="coming-soon">Gallery</a></li>
+              <li><a class="closebtn1" routerLink="coming-soon">leaderboard</a></li>
+              <li><a class="closebtn1" routerLink="coming-soon">Events</a></li>
+              <li><a class="closebtn1" routerLink="coming-soon">News & Promos</a></li>
+              <li><a class="closebtn1" routerLink="coming-soon">Store</a></li>
+              <li><a class="closebtn1" routerLink="coming-soon" >About Us</a></li>
+    </ul>
+  </div>

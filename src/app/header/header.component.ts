@@ -7,6 +7,17 @@ import * as $ from 'jquery';
 })
 export class HeaderComponent {
   ngOnInit(): void {
+
+    $('.open').click(function(){
+     $('.sidenav').css( "transform", "translatex(0px)")
+     $('.sidenav ul').addClass("left_ani")
+    })
+    $('.closebtn1').click(function(){
+      $('.sidenav').css( "transform", "translatex(-100%)")
+     $('.sidenav ul').removeClass("left_ani")
+    })
+    
+
     $(window).scroll(function(){
       let sticky = $('.sticky'),
        scroll  = $(window).scrollTop();

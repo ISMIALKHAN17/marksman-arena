@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule ,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,6 +21,9 @@ import { BookingPageComponent } from './booking-page/booking-page.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { AboutPageComponent } from './about-page/about-page.component';
+import { NewsEventsComponent } from './news-events/news-events.component';
+import { NewsEventsSliderComponent } from './news-events-slider/news-events-slider.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +40,8 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     GalleryComponent,
     LeaderboardComponent,
     ComingSoonComponent,
-   
-    
-    
+    AboutPageComponent,
+    NewsEventsComponent,
     
   ],
   imports: [
@@ -53,7 +54,8 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     NgbModule,
     DatePickerComponent,
     SlotsComponent,
-    MainSliderComponent
+    MainSliderComponent,
+    NewsEventsSliderComponent,  
  
     
     

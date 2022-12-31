@@ -1,0 +1,22 @@
+
+ <ngb-carousel
+ #carousel
+ [interval]="4000"
+ [pauseOnHover]="pauseOnHover"
+ [pauseOnFocus]="pauseOnFocus"
+ (slide)="onSlide($event)"
+>
+<ng-template data-aos="fade-up" ngbSlide *ngFor="let slide of news; index as i">
+ <div class="news_slider">
+     <div class="carousel-caption">
+         <div class="banner_text">
+     <h1>{{slide.title}}</h1>
+     <p>{{slide.newsText}}</p>
+ </div>
+     </div>
+         <div class="picsum-img-wrapper">
+             <img [src]="slide.img" />
+         </div>
+</div>
+ </ng-template>
+</ngb-carousel>

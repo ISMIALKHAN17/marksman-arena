@@ -1,63 +1,64 @@
+
 import { NgFor } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { Component, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { NgbCarousel, NgbCarouselModule, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
-  selector: 'app-main-slider',
-  templateUrl: './main-slider.component.html',
-  styleUrls: ['./main-slider.component.css'],
+  selector: 'app-news-events-slider',
+  templateUrl: './news-events-slider.component.html',
+  styleUrls: ['./news-events-slider.component.css'],
   standalone: true,
   imports: [NgbCarouselModule, NgFor, FormsModule],
 })
-
-export class MainSliderComponent {
+export class NewsEventsSliderComponent {
   paused = false;
 	unpauseOnArrow = false;
 	pauseOnIndicator = false;
 	pauseOnHover = true;
 	pauseOnFocus = true;
-  slides = [
+  news = [
     {
-      slide:'1',
+      news:'1',
       img: "../../../assets/images/paint-ball.jpg",
       title:'Paint Ball',
-      bannerText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      newsText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Sunt laborum pariatur molestias error. Deserunt quisquam,
       cum tempora suscipit molestiae error est nemo et aut
       excepturi fugit eaque quis nobis fuga.`
   },
     {
-      slide:'2',
+      news:'2',
       img: "../../../assets/images/indoor-cricket.jpg",
-      title:'Indoor Cricket',
-      bannerText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      title:'Indoor Cricktet',
+      newsText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Sunt laborum pariatur molestias error. Deserunt quisquam,
       cum tempora suscipit molestiae error est nemo et aut
       excepturi fugit eaque quis nobis fuga.`
   },
     {
-      slide:'3',
+      news:'3',
       img: "../../../assets/images/GelBlaster.webp",
       title:'Gel Blaster',
-      bannerText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      newsText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Sunt laborum pariatur molestias error. Deserunt quisquam,
       cum tempora suscipit molestiae error est nemo et aut
       excepturi fugit eaque quis nobis fuga.`
     },
     {
-      slide:'4',
+      news:'4',
       img: "../../../assets/images/range.jpg",
       title:'Airsoft Range',
-      bannerText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      newsText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Sunt laborum pariatur molestias error. Deserunt quisquam,
       cum tempora suscipit molestiae error est nemo et aut
       excepturi fugit eaque quis nobis fuga.`
     },
     {
-      slide:'5',
+      news:'5',
       img: "../../../assets/images/archery.jpg",
       title:'Archery',
-      bannerText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      newsText:`Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Sunt laborum pariatur molestias error. Deserunt quisquam,
       cum tempora suscipit molestiae error est nemo et aut
       excepturi fugit eaque quis nobis fuga.`
@@ -86,3 +87,4 @@ export class MainSliderComponent {
 		}
 	}
 }
+
