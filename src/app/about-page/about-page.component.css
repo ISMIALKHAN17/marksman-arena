@@ -1,0 +1,38 @@
+.about_us img{
+    width: 70%;
+}
+.why_choose_box img{
+    filter: invert(31%) sepia(85%) saturate(7486%) hue-rotate(354deg) brightness(86%) contrast(125%);
+    width: 120px;
+    margin-bottom: 20px;
+    display: inline-block;
+    height: 120px;
+}
+.why_choose_box {
+    text-align: center;
+}
+.why_choose_box h3{
+    color: #fff;
+     
+}
+
+.why_choose_us{
+    padding: 100px 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../../assets/images/why_choose.jfif);
+    background-position: center;
+    position: relative;
+    isolation: isolate;
+}
+
+.why_choose_us::before{
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    position: absolute;
+    content: '';
+    top: 0;
+    opacity: 0.5;
+    z-index: -1;
+}

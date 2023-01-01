@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutPageComponent } from './about-page/about-page.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
 import { BookingComponent } from './booking/booking.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
@@ -19,7 +20,11 @@ const routes: Routes = [
   {path:'news',component:NewsEventsComponent,data: {
     headerText: 'News & Events'
   }},
-  {path:'coming-soon',component:ComingSoonComponent}
+  {path:'coming-soon',component:ComingSoonComponent},
+  {path:'about-us',component:AboutPageComponent ,data: {
+    headerText:'About Us',
+    bannerText:'This is About Us Page'
+  }}
 
 ];
 @NgModule({
