@@ -1,94 +1,46 @@
-.news_info ul li {
-    align-items: center;
-    display: flex;
-    gap: 10px;
+.news_wrap h3{
+    margin: 20px 0px;
+    font-size: 30px;
 }
-
-.news_info ul li div:nth-child(1) {
-    width: 40%;
-}
-
-.news_info ul li h3 {
-    color: #fff;
-    margin: 0;
-    font-size: 19px;
-}
-
-.news_info ul li p {
-    font-size: 12px;
-    line-height: 1.5;
-    margin: 0;
-}
-.events-news  h3{
-    color: #fff;
-    font-family: 'Montserrat';
-}
-
-.news_info li{
-    background-color: #f200002e;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    
-}
-
-.news_box .news_image img {
-    height: 300px;
+.news_wrap img{
+    height: 50vh;
     width: 100%;
     object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    object-position: center;
 }
 
-.newsbox_info h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
-    margin: 10px 0px;
-    font-family: 'Montserrat';
-}
-
-.newsbox_info {
-    text-align: center;
-    padding: 10px 21px;
-}
-
-.newsbox_info p {
-    opacity: 0.7;
-}
-
-ul.read_more {
+ul li {
     display: flex;
-    justify-content: space-between;
-    border-top: 1px solid red;
-    padding: 10px 0px;
-    margin: 0;
-    align-items: center;
-}
-
-ul.read_more>li>a {
-    color: red;
-    text-transform: capitalize;
-}
-
-.news_box {
-    box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+    align-content: center;
+    gap: 11px;
+    margin-bottom:10px ;
+    cursor: pointer;
+    background-color:#f200002e;
     border-radius: 10px;
-    /* Featuers  */
 }
 
-.news_box ul.read_more li:last-child a {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;
-    background-color: var(--main-color);
-    border-radius: 100%;
+li .news_image {width: 30%;}
+li .news_image img{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 100%;
+    object-fit: cover;
+}
+li .news_description {
+    width: 70%;
+    padding: 10px 0px;
 }
 
-.news_box ul.read_more li>a {
+li .news_description  h4{
+    margin-bottom: 5px;
+    font-size: 17px;
     font-weight: 700;
-    font-size: 20px;
-    text-transform: capitalize;
+}
+li .news_description  p{
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+.container-fluid{
+    padding: 0px 80px;
 }

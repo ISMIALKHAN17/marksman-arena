@@ -1,0 +1,32 @@
+.news_info ul li {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.news_info ul li div:nth-child(1) {
+    width: 40%;
+}
+
+.news_info ul li h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 19px;
+}
+
+.news_info ul li p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+.events-news  h3{
+    color: #fff;
+    font-family: 'Montserrat';
+}
+
+.news_info li{
+    background-color: #f200002e;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    
+}

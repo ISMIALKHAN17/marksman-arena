@@ -24,6 +24,7 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { NewsEventsComponent } from './news-events/news-events.component';
 import { NewsEventsSliderComponent } from './news-events-slider/news-events-slider.component';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { NewsEventsSliderComponent } from './news-events-slider/news-events-slid
     ComingSoonComponent,
     AboutPageComponent,
     NewsEventsComponent,
+    EventsComponent,
     
   ],
   imports: [

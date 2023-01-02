@@ -4,6 +4,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
 import { BookingComponent } from './booking/booking.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+import { EventsComponent } from './events/events.component';
 import { HomeComponent } from './home/home.component';
 import { NewsEventsComponent } from './news-events/news-events.component';
 
@@ -18,12 +19,16 @@ const routes: Routes = [
   }
 },
   {path:'news',component:NewsEventsComponent,data: {
-    headerText: 'News & Events'
+    headerText: 'News and Promos'
   }},
   {path:'coming-soon',component:ComingSoonComponent},
   {path:'about-us',component:AboutPageComponent ,data: {
     headerText:'About Us',
     bannerText:'This is About Us Page'
+  }},
+  {path:'events',component:EventsComponent ,data: {
+    headerText:'Events',
+    bannerText:'This is Events Page'
   }}
 
 ];
@@ -32,4 +37,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents =  [BookingComponent,HomeComponent,BookingPageComponent,ComingSoonComponent,NewsEventsComponent]
+export const routingComponents =  [BookingComponent,HomeComponent,BookingPageComponent,ComingSoonComponent,NewsEventsComponent,EventsComponent]

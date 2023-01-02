@@ -12,10 +12,12 @@ body {
   background-color: #000 !important;
 }
 :root{
-  --zen-dots:'Zen Dots', cursive;
+  /* --zen-dots:'Zen Dots', cursive; */
+  /* --zen-dots:'nexa-rust'; */
+  --zen-dots:'legend-m';
 }
 html {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 a {
@@ -91,6 +93,18 @@ p {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'nexa-rust';
+  src: url(../fonts/NexaRustSans-Trial-Black2.ttf);
+}
+@font-face {
+  font-family: 'socer-s';
+  src: url(../fonts/SoccerLeagueCollege.ttf);
+}
+@font-face {
+  font-family: 'legend-m';
+  src: url(../fonts/legend.ttf);
+}
 
 /***** Custom Classes *****/
 
@@ -209,45 +223,45 @@ h1 {
 
 h2 {
   font-family: var(--zen-dots);
-  font-size: 55px;
+  font-size: 60px;
   line-height: 1.2;
-  color: #FF0000;
+  color: #fff;
   font-weight: 500;
   margin: 0 0 30px;
 }
 
 h3 {
-  font-family: var(--mons);
+  font-family: 'Rajdhani';
   font-size: 30px;
   line-height: 1.2;
-  color: #000000;
+  color: #fff;
   font-weight: 600;
   margin: 0 0 28px;
 }
 
 h4 {
-  font-family: var(--mons);
+  font-family: 'Rajdhani';
   font-size: 24px;
   line-height: 1.2;
-  color: #FF0000;
+  color: #fff;
   font-weight: 500;
   margin: 0 0 13px;
 }
 
 h5 {
-  font-family: var(--mons);
+  font-family: 'Rajdhani';
   font-size: 20px;
   line-height: 1.2;
-  color: #FF0000;
+  color: #fff;
   font-weight: 500;
   margin: 0 0 20px;
 }
 
 h6 {
-  font-family: var(--mons);
+  font-family: 'Rajdhani';
   font-size: 18px;
   line-height: 1.2;
-  color: #FF0000;
+  color: #fff;
   font-weight: 500;
   margin: 0 0 22px;
 }
@@ -575,7 +589,7 @@ transition: 0.5s;
   color: #fff;
 }
 .banner_text h1 {
-  font-size: 50px;
+  font-size: 70px;
   text-transform: capitalize;
 }
 
@@ -638,8 +652,9 @@ transition: 0.5s;
 /* services */
 .theme_heading h2 {
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 65px;
   position: relative;
+  color: #fff;
 }
 .theme_heading{
   padding-bottom: 40px;

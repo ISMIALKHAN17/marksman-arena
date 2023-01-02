@@ -6,21 +6,23 @@
     width: 120px;
     margin-bottom: 20px;
     display: inline-block;
-    height: 120px;
+    height: 100px;
 }
 .why_choose_box {
     text-align: center;
 }
 .why_choose_box h3{
     color: #fff;
-     
+    font-size: 30px ;
+    margin-bottom: 10px;
+}
+.why_choose_box p {
+    font-size: 14px;
 }
 
 .why_choose_us{
-    padding: 100px 0px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(../../assets/images/why_choose.jfif);
     background-position: center;
     position: relative;
     isolation: isolate;
