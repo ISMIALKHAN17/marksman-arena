@@ -655,6 +655,7 @@ transition: 0.5s;
   font-size: 65px;
   position: relative;
   color: #fff;
+  display: inline-block;
 }
 .theme_heading{
   padding-bottom: 40px;

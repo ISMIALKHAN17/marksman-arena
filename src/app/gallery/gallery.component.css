@@ -4,6 +4,9 @@
 .tz-gallery .row > div {
     padding: 2px;
 }
+.tz-gallery{
+    padding: 0px 20px;
+}
 
 .tz-gallery .lightbox img {
     width: 100%;

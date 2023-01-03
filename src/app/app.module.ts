@@ -25,6 +25,8 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { NewsEventsComponent } from './news-events/news-events.component';
 import { NewsEventsSliderComponent } from './news-events-slider/news-events-slider.component';
 import { EventsComponent } from './events/events.component';
+import { HttpClientModule } from '@angular/common/http';
+ 
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { EventsComponent } from './events/events.component';
     AboutPageComponent,
     NewsEventsComponent,
     EventsComponent,
+  
     
   ],
   imports: [
@@ -57,6 +60,7 @@ import { EventsComponent } from './events/events.component';
     DatePickerComponent,
     SlotsComponent,
     MainSliderComponent,
+    HttpClientModule,
     NewsEventsSliderComponent,  
  
     

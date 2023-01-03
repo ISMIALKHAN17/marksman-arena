@@ -1,14 +1,18 @@
 
 import { Component } from '@angular/core';
 import * as $ from 'jquery';
-
+import { DataService } from '../services/data.service'
 @Component({
   selector: 'app-news-events',
   templateUrl: './news-events.component.html',
   styleUrls: ['./news-events.component.css']
 })
-export class NewsEventsComponent {
 
+export class NewsEventsComponent {
+  constructor(public request: DataService) {
+
+  }
+  
 
   ourNews = [
     {
@@ -111,4 +115,5 @@ export class NewsEventsComponent {
    
   }
 
+ 
 }
