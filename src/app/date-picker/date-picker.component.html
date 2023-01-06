@@ -1,4 +1,4 @@
 <span>Select Date</span>
-<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date  = $event.next" [minDate]="minDate"></ngb-datepicker>
+<ngb-datepicker #dp [(ngModel)]="model" (dateSelect)="onDateSelect($event)" (navigate)="date  = $event.next" [minDate]="minDate"></ngb-datepicker>
 
 

@@ -5,8 +5,11 @@ import { BookingPageComponent } from './booking-page/booking-page.component';
 import { BookingComponent } from './booking/booking.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { EventsComponent } from './events/events.component';
+import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { HomeComponent } from './home/home.component';
+import { LeaderboardPageComponent } from './leaderboard-page/leaderboard-page.component';
 import { NewsEventsComponent } from './news-events/news-events.component';
+import { ProceedFormComponent } from './proceed-form/proceed-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -29,6 +32,18 @@ const routes: Routes = [
   {path:'events',component:EventsComponent ,data: {
     headerText:'Events',
     bannerText:'This is Events Page'
+  }},
+  {path:'gallery',component:GalleryPageComponent ,data: {
+    headerText:'Our Gallery',
+    bannerText:'This is Gallery Page'
+  }},
+  {path:'leaderboard',component:LeaderboardPageComponent ,data: {
+    headerText:'Leaderboard',
+    bannerText:'This is leaderboard Page'
+  }},
+  {path:'proceed-booking',component:ProceedFormComponent ,data: {
+    headerText:'Players Info',
+    bannerText:'This is proceed-booking Page'
   }}
 
 ];
@@ -37,4 +52,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents =  [BookingComponent,HomeComponent,BookingPageComponent,ComingSoonComponent,NewsEventsComponent,EventsComponent]
+export const routingComponents =  [BookingComponent,HomeComponent,BookingPageComponent,ComingSoonComponent,NewsEventsComponent,EventsComponent,GalleryPageComponent,LeaderboardPageComponent,ProceedFormComponent]

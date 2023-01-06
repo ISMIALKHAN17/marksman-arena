@@ -1,0 +1,15 @@
+.player_info_form input{
+    width: 100%;
+    display: block;
+    height: 50px ;
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .player_info_form{
+    margin-bottom:15px ;
+  }

@@ -1,0 +1,26 @@
+<app-inner-banner></app-inner-banner>
+<section class="proceed_form py_8">
+    <div class="theme_heading text-center">
+        <h2>Players Info</h2>
+        <p>Please Enter Player Details </p>
+    </div>
+    <div class="container">
+        <form [formGroup]="form"  (submit)="getValues()">
+            <div class="row" formArrayName="form">
+               <div class="col-md-6" *ngFor="let i of length_of_players">
+                <div class="player_info_form" formGroupName="{{i}}">     
+                    <h4>Player      {{i}}</h4>
+                    <input type="text" placeholder="Player Name"  formControlName="name">
+                    <input type="text" placeholder="Player Name"  formControlName="number">
+                    <!-- <input type="text" placeholder="Player Name"  [formControlName]="number">     -->
+                    <!-- <input type="tel" placeholder="Player Phone Number" formArrayName="number"> -->
+                </div>
+               </div>
+             
+               <div class="col-md-12">
+                <button class="theme_btn">Submit</button>
+               </div>
+            </div>
+        </form>
+    </div>
+</section>

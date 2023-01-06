@@ -26,6 +26,10 @@ import { NewsEventsComponent } from './news-events/news-events.component';
 import { NewsEventsSliderComponent } from './news-events-slider/news-events-slider.component';
 import { EventsComponent } from './events/events.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GalleryPageComponent } from './gallery-page/gallery-page.component';
+import { LeaderboardPageComponent } from './leaderboard-page/leaderboard-page.component';
+import { ProceedFormComponent } from './proceed-form/proceed-form.component';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
  
 
 @NgModule({
@@ -46,6 +50,9 @@ import { HttpClientModule } from '@angular/common/http';
     AboutPageComponent,
     NewsEventsComponent,
     EventsComponent,
+    GalleryPageComponent,
+    LeaderboardPageComponent,
+    ProceedFormComponent,
   
     
   ],
@@ -61,7 +68,13 @@ import { HttpClientModule } from '@angular/common/http';
     SlotsComponent,
     MainSliderComponent,
     HttpClientModule,
-    NewsEventsSliderComponent,  
+    NewsEventsSliderComponent,
+    FormsModule,
+    BrowserModule,
+   
+    ReactiveFormsModule,
+  
+     
  
     
     

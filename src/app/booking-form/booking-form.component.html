@@ -1,7 +1,7 @@
 
-<section class="booking2 pt_8">
+<section class="booking2 py_8">
     <div class="container">
-      <form id="target" (submit)="sendForm()">
+      <form [formGroup]="booking_form" id="target" (submit)="sendForm()">
       <div class="theme_heading text-center">
         <h2>Book Now</h2>
         
@@ -9,19 +9,19 @@
       <div class="row mattch_info">
         <div class="col-md-6">
           <label>Name</label>
-          <input type="text" >
+          <input type="text" formControlName="name" >
         </div>
         <div class="col-md-6">
           <label>Email</label>
-          <input type="text" >
+          <input type="text" formControlName="email" >
         </div>
         <div class="col-md-6">
           <label>Phone Number</label>
-          <input type="text" >
+          <input type="text" formControlName="phone_no" >
         </div>
         <div class="col-md-6">
           <label>Number of Players</label>
-          <input type="text" >
+          <input type="text" formControlName="no_of_players" >
         </div>
         <div class="col-md-6">
           <button class="theme_btn">Submit</button>

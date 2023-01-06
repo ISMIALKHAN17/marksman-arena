@@ -3,18 +3,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <app-date-picker></app-date-picker>
+                <app-date-picker (messageEvent)="receiveMessage($event)"></app-date-picker>
             </div>
             <div class="col-md-6 centerCol">
                 <div class="select-time">
                     <span>Select Time Slot</span>
                     <div class="time-box-wrp">
-                        <div class="time-btn" *ngFor="let time of timeSlot"  (click)="open(content)">
-                          <input type="radio" name="time">
-                          <span>{{time.time}}</span>
+                        <div class="time-btn" *ngFor="let time of timeSlots;let i = index"  (click)="open(content ,inputElement,slotId)">
+                          <input type="radio" name="time" #inputElement value="{{timeSlots[i]['name']}}"  >
+                          <input type="hidden" name="time" #slotId value="{{timeSlots[i]['id']}}"  >
+                          <span>{{timeSlots[i]['name']}}</span>
                         </div>
                     </div>
-                    <a href="" class="btn-lg-mo">Reserve Your Seats <i class="fa-solid fa-angle-right"></i></a>
+                    <!-- <a href="" class="btn-lg-mo"><i class="fa-solid fa-phone"></i> Call Us For New Slot Opening </a> -->
                 </div>
             </div>
             
@@ -28,9 +29,10 @@
         <div class="modal-content">
             <div class="text-center">
               <h2>Select Slots</h2>
-              <p><span id="slot-date"></span> - <span id="slot-time"></span></p>
+              <p><span id="slot-date">{{selectedDate}}</span> - <span id="slot-time">{{selectedTime}}</span></p>
               <h4>Team 1</h4>
             </div>
+           
             <ul class="slots">
               <li *ngFor="let seat of seats">
                 <input id="{{seat.label}}" type="checkbox" (change)="checkseats()">
@@ -55,10 +57,11 @@
   
             <ul class="d-flex justify-content-center" style="gap: 10px;">
               <li>
-                <button (click)="checkseats()" class="theme_btn">Proceed</button>
+                <button (click)="goToNextPage('proceed-booking',content)" aria-label="Close"   class="theme_btn">Proceed</button>  
               </li>
             </ul>
-            
+          
           </div>
 	</div>
 </ng-template>
+

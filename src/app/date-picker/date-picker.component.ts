@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgbDateStruct, NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
@@ -10,8 +10,9 @@ import { JsonPipe } from '@angular/common';
     imports: [NgbDatepickerModule, FormsModule, JsonPipe]
 })
 export class DatePickerComponent {
+  today = new Date() ;
 	model!: NgbDateStruct;
-	date!: { year: number; month:   number };
+	date!: { year: number; month: number };
   minDate: { year: number; month: number; day: number; };
 
 	constructor(private calendar: NgbCalendar) {
@@ -23,8 +24,15 @@ export class DatePickerComponent {
   };
   }
 
-	selectToday() {
-		this.model = this.calendar.getToday();
-}
+  @Output() messageEvent = new EventEmitter<string>();
+
+  onDateSelect(event:any){
+    this.sendMessage(event)
+  }
+  sendMessage(date:any) {
+    this.messageEvent.emit(date);
+  }
+
+
 
 }
