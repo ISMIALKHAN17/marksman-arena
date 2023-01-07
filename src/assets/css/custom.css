@@ -291,7 +291,7 @@ h6 {
   padding: 12px 50px;
   position: absolute;
   width: 100%;
-  z-index: 1111;
+  z-index: 1;
   top: 50px;
 
 }
@@ -1529,7 +1529,7 @@ ngb-datepicker {
 
 
 .ngb-dp-weekdays {
-  background-color: #5c0000 !important;
+  background-color: #f20000 !important;
   border: none !important;
   padding: 12px  ;
   margin-top: 11px !important;
@@ -1539,11 +1539,12 @@ ngb-datepicker {
   color: #fff !important;
 }
 ngb-datepicker-navigation-select>.form-select {
-  border-radius: 0 !important;
+  border-radius: 5px !important;
   margin: 0px 10px;
-  background-color: #ffffff;
-  border: none !important;
+  background-color: #000 !important;
   height: 45px !important;
+  color: #fff;
+  border: 1px solid #fff !important;
 }
 
 .ngb-dp-navigation-select {
@@ -1558,12 +1559,13 @@ ngb-datepicker-navigation-select>.form-select {
 }
 
 
-ul.slots  li input {
+ul.slots  li > input {
   position: absolute;
   height: 100%;
   width: 100%;
   opacity: 0;
   cursor: pointer;
+  z-index: 2;
 }
 
 ul.slots li {
@@ -1572,16 +1574,82 @@ ul.slots li {
   padding: 0;
 }
 ul.slots  li span{
-  background-color: rgb(0, 94, 255);
+  background-color: rgb(0, 110, 13);
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.5s;
 }
 ul.slots li input:checked+span{
-  background-color: green;
+  background-color: rgb(0, 97, 253);
+  /* transform: scale(1.5); */
+  padding: 0;
+  z-index:1;
+  position: relative;
+
+  
 }
+
+ul.slots li .input_field {
+  position: absolute;
+  background-color: rgb(0, 97, 253);
+  width: 200px;
+  border-radius: 5px;
+  /* width: 200px;
+  background: #141313;
+  height: 150px; */
+  display: none;
+  padding: 10px;
+  z-index: 111111111111111111;
+  /* border: 1px solid #fff; */
+  /* border-radius: 5px; */
+  /* box-shadow: #ffffff 0px 3px 8px; */
+  animation: scale 0.5s;
+}
+.input_field button{
+  background-color: green;
+  border: none;
+  color: #fff;
+  
+}
+.input_field .discard{
+  background-color: red !important;
+  border: none;
+  color: #fff;
+  margin: 0px 10px;
+}
+
+
+
+@keyframes scale {
+  0%{
+    transform: scale(0);
+  }  
+  100%{
+    transform: scale(1);
+  }  
+}
+
+ul.slots li .input_field input {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  margin-bottom: 10px;
+  border: 1px  solid #fff;
+  padding: 7px;
+  border-radius: 2px;
+}
+
+ul.slots li input:checked+span+.input_field{
+  display: block;
+}
+ul.slots li .input_field input::placeholder{
+  color: #fff;
+  font-size: 13px;
+}
+
 .error{
   color: red;
 }

@@ -32,7 +32,13 @@ export class DatePickerComponent {
   sendMessage(date:any) {
     this.messageEvent.emit(date);
   }
-
+  isDisabled(date: NgbDateStruct) {
+    const day = date.day;
+    const month = date.month;
+    const year = date.year;
+    const monday = new Date(year, month - 1, day).getDay() === 1;
+    return monday;
+  }
 
 
 }

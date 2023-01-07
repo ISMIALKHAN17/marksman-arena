@@ -1,67 +1,121 @@
-
-  <section class="book-now-sec py_8">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <app-date-picker (messageEvent)="receiveMessage($event)"></app-date-picker>
+<section class="book-now-sec py_8">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" id="date">
+        <h4>Please Select Date</h4>
+        <p>{{ selectedDate }}</p>
+        <app-date-picker
+          (messageEvent)="receiveMessage($event)"
+        ></app-date-picker>
+        <!-- <button class="theme_btn mt-3" (click)="openSlots()" id="next_btn" disabled="true">Next <i class="fa-regular fa-arrow-right-long"></i></button> -->
+      </div>
+      <div class="col-md-12 centerCol" id="time">
+        <div class="select-time">
+          <span>Select Time Slot</span>
+          <div *ngIf="isLoading">
+            <p>Loading...</p>
+          </div>
+          <div class="time-box-wrp" *ngIf="!isLoading">
+            <div
+              class="time-btn"
+              *ngFor="let time of timeSlots; let i = index"
+              (click)="open(content, inputElement, slotId)"
+            >
+              <input
+                type="radio"
+                name="time"
+                #inputElement
+                value="{{ timeSlots[i]['name'] }}"
+              />
+              <input
+                type="hidden"
+                name="time"
+                #slotId
+                value="{{ timeSlots[i]['id'] }}"
+              />
+              <span>{{ timeSlots[i]["name"] }}</span>
             </div>
-            <div class="col-md-6 centerCol">
-                <div class="select-time">
-                    <span>Select Time Slot</span>
-                    <div class="time-box-wrp">
-                        <div class="time-btn" *ngFor="let time of timeSlots;let i = index"  (click)="open(content ,inputElement,slotId)">
-                          <input type="radio" name="time" #inputElement value="{{timeSlots[i]['name']}}"  >
-                          <input type="hidden" name="time" #slotId value="{{timeSlots[i]['id']}}"  >
-                          <span>{{timeSlots[i]['name']}}</span>
-                        </div>
-                    </div>
-                    <!-- <a href="" class="btn-lg-mo"><i class="fa-solid fa-phone"></i> Call Us For New Slot Opening </a> -->
-                </div>
-            </div>
-            
+          </div>
         </div>
+        <button class="theme_btn mt-3" (click)="openDate()" id="prev_btn">
+          <i class="fa-regular fa-arrow-left-long"></i> Previous
+        </button>
+      </div>
     </div>
+  </div>
 </section>
 
-
 <ng-template #content let-modal>
-	<div class="modal-body">
-        <div class="modal-content">
-            <div class="text-center">
-              <h2>Select Slots</h2>
-              <p><span id="slot-date">{{selectedDate}}</span> - <span id="slot-time">{{selectedTime}}</span></p>
-              <h4>Team 1</h4>
-            </div>
-           
-            <ul class="slots">
-              <li *ngFor="let seat of seats">
-                <input id="{{seat.label}}" type="checkbox" (change)="checkseats()">
-                <span>select</span>
-              </li>
-            </ul>
-            <div class="text-center">
-              <h2>VS</h2>
-              <h4>Team 2</h4>
-            </div>
-            <ul class="slots">
-              <li *ngFor="let seat of seatsRow2">
-                <input id="{{seat.label}}" (change)="checkseats()" type="checkbox">
-                <span>select</span>
-              </li>
-            </ul>
-  
-            <div class="text-center">
-              <p id="error" class="error"><b>NOTE!</b> For Playing Exclusively, You Have to add more than 3 Players to each  Team, And Teams must be equal</p>
-              <p class="pex"><input disabled="true" type="checkbox" id="ex" for="ex"> <label for="ex">Pay 1000 to reserve Exclusive</label> </p>
-            </div>
-  
-            <ul class="d-flex justify-content-center" style="gap: 10px;">
-              <li>
-                <button (click)="goToNextPage('proceed-booking',content)" aria-label="Close"   class="theme_btn">Proceed</button>  
-              </li>
-            </ul>
-          
-          </div>
-	</div>
-</ng-template>
+  <div class="modal-body">
+    <div class="modal-content">
+      <div class="text-center">
+        <h2>Select Slots</h2>
+        <h3>
+          <span id="slot-date">{{ selectedDate }}</span> -
+          <span id="slot-time">{{ selectedTime }}</span>
+        </h3>
 
+        <h4>Team 1</h4>
+      </div>
+
+      <ul class="slots">
+        <li *ngFor="let seat of seats">
+          <input
+            id="{{ seat.label }}"
+            type="checkbox"
+            (click)="toggle = !toggle"
+            (click)="selected = seat"
+            (change)="checkseats()"
+            [(ngModel)]="seat.checked"
+          />
+
+          <span>{{seat.value}}</span>
+          
+          <div class="input_field" *ngIf="selected === seat && !booked">
+            <input type="tel" placeholder="Enter Player Number" />
+            <input type="text" #nameInput [(ngModel)]="inputName" placeholder="Enter Player Name" />
+            <button class="book" (click)="bookSlot(seat)">Confirm</button>
+            <button class="book discard" (click)="uncheckCheckbox(seat)">Discard</button>
+          </div>
+        </li>
+      </ul>
+      <div class="text-center">
+        <h2>VS</h2>
+        <h4>Team 2</h4>
+      </div>
+      <ul class="slots">
+        <li *ngFor="let seat of seatsRow2">
+          <input
+            id="{{ seat.label }}"
+            (change)="checkseats()"
+            type="checkbox"
+          />
+          <span>select</span>
+        </li>
+      </ul>
+
+      <div class="text-center">
+        <p id="error" class="error">
+          <b>NOTE!</b> For Playing Exclusively, You Have to add more than 3
+          Players to each Team, And Teams must be equal
+        </p>
+        <p class="pex">
+          <input disabled="true" type="checkbox" id="ex" for="ex" />
+          <label for="ex">Pay 1000 to reserve Exclusive</label>
+        </p>
+      </div>
+
+      <ul class="d-flex justify-content-center" style="gap: 10px">
+        <li>
+          <button
+            (click)="goToNextPage('proceed-booking', content)"
+            aria-label="Close"
+            class="theme_btn"
+          >
+            Proceed
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-template>

@@ -30,6 +30,7 @@ import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { LeaderboardPageComponent } from './leaderboard-page/leaderboard-page.component';
 import { ProceedFormComponent } from './proceed-form/proceed-form.component';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+
  
 
 @NgModule({
@@ -53,6 +54,7 @@ import { FormsModule,ReactiveFormsModule} from '@angular/forms';
     GalleryPageComponent,
     LeaderboardPageComponent,
     ProceedFormComponent,
+    
   
     
   ],
@@ -71,8 +73,8 @@ import { FormsModule,ReactiveFormsModule} from '@angular/forms';
     NewsEventsSliderComponent,
     FormsModule,
     BrowserModule,
-   
     ReactiveFormsModule,
+    
   
      
  

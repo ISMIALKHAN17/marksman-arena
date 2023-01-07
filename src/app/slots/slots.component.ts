@@ -1,4 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
+
+import { NgModel } from '@angular/forms';
+
 import {
   ModalDismissReasons,
   NgbDatepickerModule,
@@ -10,20 +13,21 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { HttpClient } from '@angular/common/http';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormControl, Validators, FormGroup ,FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-slots',
   standalone: true,
   templateUrl: './slots.component.html',
   styleUrls: ['./slots.component.css'],
-  imports: [NgbDatepickerModule, DatePickerComponent, CommonModule],
+  imports: [NgbDatepickerModule, DatePickerComponent, CommonModule,FormsModule],
 })
 export class SlotsComponent {
   @ViewChild('closebutton') closebutton: any;
   closeResult = '';
   selectedTimeId: any;
   selected_date: any;
+  inputName: any
 
   constructor(
     public modalService: NgbModal,
@@ -33,51 +37,75 @@ export class SlotsComponent {
 
   ngOnInit(): void {
     this.getData();
+    this.inputName = 'Select'
+   
   }
+  isLoading = true;
 
   timeSlots = [];
 
   getData() {
+
+    this.isLoading = true;
+
     this.dataService
       .get('/public/api/slot/index', false)
       .subscribe((res: any) => {
         console.log(res.data);
         this.timeSlots = res.data;
       });
+      
+      this.isLoading = false;
   }
 
   seats = [
     {
       name: 'Slot 1',
       label: 'slot-1',
+      checked: false,
+      value: 'select'
     },
     {
       name: 'Slot 2',
       label: 'slot-2',
+      checked: false,
+      value: 'select'
     },
     {
       name: 'Slot 3',
       label: 'slot-3',
+      checked: false,
+      value: 'select'
     },
     {
       name: 'Slot 4',
       label: 'slot-4',
+      checked: false,
+      value: 'select'
     },
     {
       name: 'Slot 5',
       label: 'slot-5',
+      checked: false,
+      value: 'select'
     },
     {
       name: 'Slot 6',
       label: 'slot-6',
+      checked: false,
+      value: 'select'
     },
     {
       name: 'Slot 7',
       label: 'slot-7',
+      checked: false,
+      value: 'select'
     },
     {
       name: 'Slot 8',
       label: 'slot-8',
+      checked: false,
+      value: 'select'
     },
   ];
   seatsRow2 = [
@@ -116,11 +144,14 @@ export class SlotsComponent {
   ];
 
   checkseats() {
-    // prompt('Enter Name')
-
     var checkboxes = $('.slots li input[type="checkbox"]').filter(
       ':checked'
     ).length;
+
+
+    
+
+
     if (checkboxes >= 8 && checkboxes % 2 == 0) {
       $('#ex').removeAttr('disabled');
     } else {
@@ -129,11 +160,13 @@ export class SlotsComponent {
     }
   }
 
-  goToNextPage(pageName: string, content: any) {
+  
 
+  goToNextPage(pageName: string, content: any) {
     console.log(this.selectedTime, this.selectedDate, this.selectedTimeId);
     this.goToPage(pageName);
     this.modalService.dismissAll(content);
+
   }
   goToPage(pageName: string) {
     close();
@@ -200,11 +233,42 @@ export class SlotsComponent {
       'Dec',
     ];
     let month: any = Object.values(date)[1];
-    this.selectedDate = ` ${Object.values(date)[2]}-${mS[month]}-${
-      Object.values(date)[0]
-    }`;
+    this.selectedDate = ` ${Object.values(date)[2]} - ${mS[month]} - ${Object.values(date)[0]}`;
     this.selected_date = ` ${Object.values(date)[2]}-${
       Object.values(date)[1]
     }-${Object.values(date)[0]}`;
+    this.openSlots()
+  }
+
+
+
+ 
+
+  // slots 
+  openSlots(){
+    $('#time').show('slow');
+    $('#date').hide('slow')
+   }
+   openDate(){
+    $('#time').hide('slow');
+    $('#date').show('slow')
+   }
+  // slots 
+
+  showSpan = false;
+  selected:any;
+  toggle= false;
+  booked = false;
+  checkboxValue = false;
+
+  uncheckCheckbox(seat:any) {
+    seat.checked = false;
+    seat.value = 'select';
+    this.selected = 'null' 
+  }
+
+  bookSlot(seat:any){
+    seat.value = this.inputName;
+    this.booked = false;
   }
 }

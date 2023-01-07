@@ -28,5 +28,12 @@ ul.slots {
   .slots .selected{
     background: green;
   }
+#time{
+  display: none;
+}
 
-
+.btn-primary{
+  background-color: #0050b8;
+  border: none;
+  color: #fff;
+}
