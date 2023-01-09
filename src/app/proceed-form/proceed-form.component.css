@@ -13,3 +13,21 @@
   .player_info_form{
     margin-bottom:15px ;
   }
+
+
+  .booking_details {
+    background: #6a0101;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+
+.booking_details ul li {
+    display: flex;
+    align-items: center;
+}
+
+.booking_details ul li span {
+    font-size: 13px;
+    padding-left: 10px;
+}

@@ -8,38 +8,30 @@ import { FormControl, Validators,FormGroup,FormBuilder,FormArray } from '@angula
 })
 
 export class ProceedFormComponent {
-   
 
-  constructor(private fb: FormBuilder) { }
-  local_storage:any = localStorage.getItem('booking_form_with_date')
-  local_data:any = JSON.parse(this.local_storage);
-  length_of_players:any = [];
-  booking_form:any = [];
-  form:any = [];
+name : any;
+email: any;
+number:any;
+date:any;
+slot:any;
+json_booking_final : any
+
   ngOnInit(): void {
-    this.arr();
-  
-    this.form = new FormArray([
-      new FormControl('name', Validators.minLength(2)),
-      new FormControl('number', Validators.minLength(2)),
-   ]);
-  
+   this.getBookingDetails()
   }
- 
 
-  arr(){
+  
+  getBookingDetails(){
+    let booking_final: any = localStorage.getItem('booking_final');
+     this.json_booking_final = JSON.parse(booking_final);
     
-    for (let i = 1; i <=  this.local_data.no_of_players ; i++) {
-      this.length_of_players.push(i);
-    }
-    // console.log(this.length_of_players);
+    this.name  =   this.json_booking_final.name
+    this.email  =   this.json_booking_final.email
+    this.number  =   this.json_booking_final.phone_no
+    this.date  =   this.json_booking_final.date
+    this.slot  =   this.json_booking_final.time_slot
   }
-  getValues(){
-    console.log(this.form.values);
-  }
-  
-   
-
 
 
 }
+

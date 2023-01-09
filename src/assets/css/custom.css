@@ -1565,7 +1565,7 @@ ul.slots  li > input {
   width: 100%;
   opacity: 0;
   cursor: pointer;
-  z-index: 2;
+  z-index: -1;
 }
 
 ul.slots li {
@@ -1583,7 +1583,7 @@ ul.slots  li span{
   transition: 0.5s;
 }
 ul.slots li input:checked+span{
-  background-color: rgb(0, 97, 253);
+  background-color: #CCc;
   /* transform: scale(1.5); */
   padding: 0;
   z-index:1;
@@ -1600,7 +1600,7 @@ ul.slots li .input_field {
   /* width: 200px;
   background: #141313;
   height: 150px; */
-  display: none;
+  /* display: none; */
   padding: 10px;
   z-index: 111111111111111111;
   /* border: 1px solid #fff; */
@@ -1642,9 +1642,9 @@ ul.slots li .input_field input {
   border-radius: 2px;
 }
 
-ul.slots li input:checked+span+.input_field{
+/* ul.slots li input:checked+span+.input_field{
   display: block;
-}
+} */
 ul.slots li .input_field input::placeholder{
   color: #fff;
   font-size: 13px;

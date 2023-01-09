@@ -1,26 +1,49 @@
 <app-inner-banner></app-inner-banner>
 <section class="proceed_form py_8">
-    <div class="theme_heading text-center">
-        <h2>Players Info</h2>
-        <p>Please Enter Player Details </p>
-    </div>
     <div class="container">
-        <form [formGroup]="form"  (submit)="getValues()">
-            <div class="row" formArrayName="form">
-               <div class="col-md-6" *ngFor="let i of length_of_players">
-                <div class="player_info_form" formGroupName="{{i}}">     
-                    <h4>Player      {{i}}</h4>
-                    <input type="text" placeholder="Player Name"  formControlName="name">
-                    <input type="text" placeholder="Player Name"  formControlName="number">
-                    <!-- <input type="text" placeholder="Player Name"  [formControlName]="number">     -->
-                    <!-- <input type="tel" placeholder="Player Phone Number" formArrayName="number"> -->
-                </div>
-               </div>
-             
-               <div class="col-md-12">
-                <button class="theme_btn">Submit</button>
-               </div>
-            </div>
-        </form>
+
+    
+    <div class="theme_heading text-center">
+        <h2>Thank You For Booking </h2>
+        <p>Please Confirm Your Booking</p>
     </div>
+
+   <div class="row">
+    <div class="col-md-9">
+        <h3>Players Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of json_booking_final.player_info;index as i">
+                    <td>{{i}}</td>
+                    <td>{{player.player}}</td>
+                    <td>{{player.number}}</td>
+                    <td>2500</td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+    <div class="col-md-3">
+        <div class="booking_details">
+            <h3>Booking Details</h3>
+            <ul>
+                <li>Name  : <span>{{name}}</span></li>
+                <li>Number  : <span>{{number}}</span></li>
+                <li>Email  : <span>{{email}}</span></li>
+                <li>Date  : <span>{{date}}</span></li>
+                <li>Slot  : <span>{{slot}}</span></li>
+                <li>Total : <span>5000</span></li>
+            </ul>
+        </div>
+    </div>
+   </div>
+</div>
 </section>
