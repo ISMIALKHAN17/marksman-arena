@@ -28,7 +28,7 @@
     position:absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(270deg,#F20000 -28%,transparent 100%);
+    background: linear-gradient(270deg,#bd0f0f -28%,transparent 100%);
     z-index: -1;
   }
   

@@ -1,7 +1,6 @@
 import { Component ,EventEmitter ,Output} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { DataService } from '../services/data.service';
-import { FormControl, Validators,FormGroup } from '@angular/forms';
+import { FormControl,FormGroup, Validators , } from '@angular/forms';
+
 
 @Component({
   selector: 'app-booking-form',
@@ -10,42 +9,56 @@ import { FormControl, Validators,FormGroup } from '@angular/forms';
 })
 export class BookingFormComponent {
   @Output() formSent: EventEmitter<void> = new EventEmitter();
-  booking_form:any = [];
-  // DataForm: FormGroup = new FormGroup({});
+  formGroup:any = [];
+  fb:any;
+  // formGroup: FormGroup;
+  // nameControl: FormControl;
+  // emailControl: FormControl;
+  // phoneControl: FormControl;
+  // playersControl: FormControl;
+  submitted: boolean;
+
+  constructor() {
+    // this.nameControl = new FormControl('', [Validators.required]);
+    // this.emailControl = new FormControl('', [Validators.required, Validators.email]);
+    // this.phoneControl = new FormControl('', [Validators.required, Validators.pattern(/^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$/)]);
+    // this.playersControl = new FormControl('', [Validators.required]);
+    // this.formGroup = new FormGroup({
+    //   name: this.nameControl,
+    //   email: this.emailControl,
+    //   phone: this.phoneControl,
+    //   players: this.playersControl,
+    // });
+    this.submitted = false;
+  }
   
   ngOnInit(): void {
-   this.booking_form = new FormGroup({
-      name: new FormControl(),
-      email: new FormControl(),
-      phone_no: new FormControl(),
-      no_of_players: new FormControl()
+   this.formGroup = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      phone_no: new FormControl('', [Validators.required, Validators.pattern(/^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$/)]),
+      no_of_players:  new FormControl('', [Validators.required])
      }); 
   }
 
-  constructor(private dataService: DataService) {}
 
 data=[];
-//   data = {
-//     "name":"test2",
-//     "email":"test@gmail.com",
-//     "phone_no":"03123465789",
-//     "no_of_players":2
-// }
   sendForm () {
-    let local = localStorage.setItem('booking_form',JSON.stringify(this.booking_form.value));
-    
-     // Send your form
+    this.rule();
+    if (this.formGroup.valid) {
+      let local = localStorage.setItem('booking_form',JSON.stringify(this.formGroup.value));
      this.formSent.emit();
      return;
-     this.dataService.post('/public/api/slot_booked',this.data,{
-      headers: {
-        'Content-Type': 'application/json'
-      }
-     }).subscribe(response => {
-      console.log(response);
-    });
-
+    } else {
+      // alert('error')
+    }
+    this.submitted = true;
   }
 
+  rule(){
+   this.fb = this.formGroup.controls;
+    
+  }
+  
 
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { NgbDateStruct, NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbCalendar, NgbDatepickerModule, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 @Component({
@@ -24,6 +24,18 @@ export class DatePickerComponent {
   };
   }
 
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+   
+  }
+
+  getWeekday(date: NgbDate) {
+    const fullDayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const day = new Date(date.year, date.month - 1, date.day).getUTCDay();
+    return fullDayName[day];
+}
+
   @Output() messageEvent = new EventEmitter<string>();
 
   onDateSelect(event:any){
@@ -39,6 +51,6 @@ export class DatePickerComponent {
     const monday = new Date(year, month - 1, day).getDay() === 1;
     return monday;
   }
-
+ 
 
 }

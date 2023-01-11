@@ -13,5 +13,13 @@ export class BookingComponent {
   }
   onFormSent () {
      this.isFormSent = true;
+     this.backButtom = true;
+  }
+
+  backButtom : any
+
+  receiveDataFromChild(data: boolean) {
+   this.backButtom  = false
+   this. isFormSent = false;
   }
 }
