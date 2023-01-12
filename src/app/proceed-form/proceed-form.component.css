@@ -16,18 +16,48 @@
 
 
   .booking_details {
-    background: #6a0101;
     padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #fff;
 }
 
 .booking_details ul li {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .booking_details ul li span {
-    font-size: 13px;
+    font-size: 14px;
     padding-left: 10px;
+    width: 64%;
+}
+
+.borderr{
+  border: 5px solid #fff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.player_data {
+  position: relative;
+}
+
+.player_data:before {
+  height: 50%;
+  width: 3px;
+  background: #bd0f0f;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 29%;
+  border-radius: 10px;
+}
+
+.player_data  table{
+  width: 95%;
+}
+tr {
+  border-bottom: 1px solid #FFF;
 }

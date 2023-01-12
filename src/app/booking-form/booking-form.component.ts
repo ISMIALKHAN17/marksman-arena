@@ -11,24 +11,13 @@ export class BookingFormComponent {
   @Output() formSent: EventEmitter<void> = new EventEmitter();
   formGroup:any = [];
   fb:any;
-  // formGroup: FormGroup;
-  // nameControl: FormControl;
-  // emailControl: FormControl;
-  // phoneControl: FormControl;
-  // playersControl: FormControl;
   submitted: boolean;
+  nameInput : any
+  emailInput : any
+  phoneInput : any
+  playerInput : any
 
   constructor() {
-    // this.nameControl = new FormControl('', [Validators.required]);
-    // this.emailControl = new FormControl('', [Validators.required, Validators.email]);
-    // this.phoneControl = new FormControl('', [Validators.required, Validators.pattern(/^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$/)]);
-    // this.playersControl = new FormControl('', [Validators.required]);
-    // this.formGroup = new FormGroup({
-    //   name: this.nameControl,
-    //   email: this.emailControl,
-    //   phone: this.phoneControl,
-    //   players: this.playersControl,
-    // });
     this.submitted = false;
   }
   
@@ -39,10 +28,25 @@ export class BookingFormComponent {
       phone_no: new FormControl('', [Validators.required, Validators.pattern(/^((\+92)|(0092))-{0,1}\d{3}-{0,1}\d{7}$|^\d{11}$|^\d{4}-\d{7}$/)]),
       no_of_players:  new FormControl('', [Validators.required])
      }); 
+
+    let  data : any= localStorage.getItem('booking_form')
+    let json_data = JSON.parse(data);
+    this.nameInput = json_data.name
+    this.emailInput = json_data.email
+    this.phoneInput = json_data.phone_no
+    this.playerInput = json_data.no_of_players
+
+
+
+     
+
+
+     
   }
 
 
-data=[];
+
+
   sendForm () {
     this.rule();
     if (this.formGroup.valid) {

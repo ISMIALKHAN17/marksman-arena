@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators,FormGroup,FormBuilder,FormArray } from '@angular/forms';
-
+import { DataService } from '../services/data.service';
 @Component({
   selector: 'app-proceed-form',
   templateUrl: './proceed-form.component.html',
@@ -15,9 +15,18 @@ number:any;
 date:any;
 slot:any;
 json_booking_final : any
+price = 2500;
+totalPrice = 0;
+  userData:any;
+  responseData: any;
+  bookingConfirm = false
+
+constructor(  private dataService: DataService){}
 
   ngOnInit(): void {
    this.getBookingDetails()
+  //  this.sendData()
+  this.bookingConfirm = false
   }
 
   
@@ -29,9 +38,29 @@ json_booking_final : any
     this.number  =   this.json_booking_final.phone_no
     this.date  =   this.json_booking_final.date
     this.slot  =   this.json_booking_final.time_slot
-
+    this.totalPrice = this.json_booking_final.player_info.length * 2500
   }
 
+  sendData(){
+    const data = {
+      name: this.json_booking_final.name,
+      email: this.json_booking_final.email,
+      phone_no: this.json_booking_final.phone_no,
+      no_of_players: this.json_booking_final.no_of_players,
+      date:  this.json_booking_final.date,
+      time_slot: this.json_booking_final.time_slot,
+      player_info: this.json_booking_final.player_info,
+    };
+
+    // localStorage.clear();
+    this.dataService.post('/public/api/slot_booked', data, false).subscribe((response) => {
+      this.bookingConfirm = true
+      this.responseData = response;
+      console.log(this.responseData)
+    }); 
+    }
+
+ 
 
 }
 

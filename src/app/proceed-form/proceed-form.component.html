@@ -4,12 +4,13 @@
 
     
     <div class="theme_heading text-center">
-        <h2>Thank You For Booking </h2>
-        <p>Please Confirm Your Booking</p>
+        <h2 *ngIf="!bookingConfirm">Please Confirm Your Booking</h2>
+        <h2 *ngIf="bookingConfirm" style="color: green;">Thank You For Booking </h2>
+        <p *ngIf="bookingConfirm">Please Collect Your Tickets Before 4 hours of Match Start To Confirm Your Booking</p>
     </div>
 
-   <div class="row">
-    <div class="col-md-9">
+   <div class="row borderr" *ngIf="!bookingConfirm">
+    <div class="col-md-8 player_data">
         <h3>Players Details</h3>
         <table>
             <thead>
@@ -25,13 +26,17 @@
                     <td>{{i+1}}</td>
                     <td>{{player.player}}</td>
                     <td>{{player.number}}</td>
-                    <td>2500</td>
+                    <td>{{price}}</td>
+                
+                  
                 </tr>
             </tbody>
-            
         </table>
+
+        
+
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="booking_details">
             <h3>Booking Details</h3>
             <ul>
@@ -40,8 +45,56 @@
                 <li>Email  : <span>{{email}}</span></li>
                 <li>Date  : <span>{{date}}</span></li>
                 <li>Slot  : <span>{{slot}}</span></li>
-                <li>Total : <span>5000</span></li>
+                <li>Total : <span>{{totalPrice}}</span></li>
             </ul>
+
+            <div class="d-flex justify-content-end">
+                <button class="theme_btn"  (click)="sendData()">Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+   </div>
+   <div class="row borderr" *ngIf="bookingConfirm">
+    <div class="col-md-8 player_data">
+        <h3>Players Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of responseData[0].player;index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{player.name}}</td>
+                    <td>{{player.number}}</td>
+                    <td>{{price}}</td>
+                
+                  
+                </tr>
+            </tbody>
+        </table>
+
+        
+
+    </div>
+    <div class="col-md-4">
+        <div class="booking_details">
+            <h3>Booking Details</h3>
+            <ul>
+                <li>Booking ID  : <span>#{{responseData[0].id}}</span></li>
+                <li>Name  : <span>{{responseData[0].name}}</span></li>
+                <li>Number  : <span>{{responseData[0].phone_no}}</span></li>
+                <li>Email  : <span>{{responseData[0].email}}</span></li>
+                <li>Date  : <span>{{responseData[0].date}}</span></li>
+                <li>Slot  : <span>{{responseData[0].slot[0].name}}</span></li>
+                <li>Total : <span>{{totalPrice*responseData[0].no_of_players}}</span></li>
+                <li>Booking Expire On : <span>{{responseData[0].created_at}}</span></li>
+            </ul>
+
         </div>
     </div>
    </div>

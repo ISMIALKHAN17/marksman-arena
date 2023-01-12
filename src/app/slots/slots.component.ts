@@ -1,7 +1,4 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
-
-import { NgModel } from '@angular/forms';
-
 import {
   ModalDismissReasons,
   NgbDatepickerModule,
@@ -39,6 +36,9 @@ export class SlotsComponent {
   numberOfPlayers: any;
   slotIndex : any;
   editIcon = false
+  loadingSlots =true;
+  addedPlayers:any;
+  totalPlayers: any;
 
   constructor(
     public modalService: NgbModal,
@@ -73,7 +73,7 @@ export class SlotsComponent {
   sendData() {
     this.userData = localStorage.getItem('booking_form_with_date')
     const jsonUserData  =  JSON.parse(this.userData);
-    const url = '/public/api/slot_booked';
+    // const url = '/public/api/slot_booked';
     const data = {
       name: jsonUserData.name,
       email: jsonUserData.email,
@@ -84,126 +84,131 @@ export class SlotsComponent {
       player_info: this.arr,
     };
     const token = false;
-    this.dataService.post(url, data, token).subscribe((response) => {
-      console.log(response)
-      localStorage.setItem('booking_final', JSON.stringify(data));
-    }); 
+    localStorage.setItem('booking_final', JSON.stringify(data));
+    // this.dataService.post(url, data, token).subscribe((response) => {
+    //   console.log(response)
+    // }); 
     
   }
   // Post DATA
 
+  
+
+   
+
+  
   seats = [
     {
       name: 'Slot 1',
       label: 'slot-1',
       checked: false,
-      value: 'available',
-      id:1
+      value: 'Available',
+      id:0
     },
     {
       name: 'Slot 2',
       label: 'slot-2',
       checked: false,
-      value: 'available',
-      id:2
+      value: 'Available',
+      id:1
     },
     {
       name: 'Slot 3',
       label: 'slot-3',
       checked: false,
-      value: 'available',
-      id:3
+      value: 'Available',
+      id:2
     },
     {
       name: 'Slot 4',
       label: 'slot-4',
       checked: false,
-      value: 'available',
-      id:4
+      value: 'Available',
+      id:3
     },
     {
       name: 'Slot 5',
       label: 'slot-5',
       checked: false,
-      value: 'available',
-      id:5
+      value: 'Available',
+      id:4
     },
     {
       name: 'Slot 6',
       label: 'slot-6',
       checked: false,
-      value: 'available',
-      id:6
+      value: 'Available',
+      id:5
     },
     {
       name: 'Slot 7',
       label: 'slot-7',
       checked: false,
-      value: 'available',
-      id:7
+      value: 'Available',
+      id:6
     },
     {
       name: 'Slot 8',
       label: 'slot-8',
       checked: false,
-      value: 'available',
-      id:8
+      value: 'Available',
+      id:7
     },
     {
       name: 'Slot 9',
       label: 'slot-9',
       checked: false,
-      value: 'available',
-      id:9
+      value: 'Available',
+      id:8
     },
     {
       name: 'Slot 10',
       label: 'slot-10',
       checked: false,
-      value: 'available',
-      id:10
+      value: 'Available',
+      id:9
     },
     {
       name: 'Slot 11',
       label: 'slot-11',
       checked: false,
-      value: 'available',
-      id:11
+      value: 'Available',
+      id:10
     },
     {
       name: 'Slot 12',
       label: 'slot-12',
       checked: false,
-      value: 'available',
-      id:12
+      value: 'Available',
+      id:11
     },
     {
       name: 'Slot 13',
       label: 'slot-13',
       checked: false,
-      value: 'available',
-      id:13
+      value: 'Available',
+      id:12
     },
     {
       name: 'Slot 14',
       label: 'slot-14',
       checked: false,
-      value: 'available',
-      id:14
+      value: 'Available',
+      id:13
     },
     {
       name: 'Slot 15',
       label: 'slot-15',
       checked: false,
-      value: 'available',
-      id:15
+      value: 'Available',
+      id:14
     },
     {
       name: 'Slot 16',
       label: 'slot-16',
       checked: false,
-      value: 'available',
-      id:16
+      value: 'Available',
+      id:15
     },
   ];
 
@@ -222,9 +227,10 @@ export class SlotsComponent {
 
   goToNextPage(pageName: string, content: any) {
     // console.log(this.selectedTime, this.selectedDate, this.selectedTimeId);
+    
     for (let i = 0; i < this.arrynumbers.length; i++) {
       if (this.arrynumbers[i] != undefined) {
-        this.arr.push({ player: this.arryData[i], number: this.arrynumbers[i],slot_index:this.arrySlotIndex[i] });
+        this.arr.push({ player: this.arryData[i], number: this.arrynumbers[i],slot_index:parseInt(this.arrySlotIndex[i]) });
       }
     }
 
@@ -252,6 +258,7 @@ export class SlotsComponent {
   }
 
   open(content: any, inputElement: any, slotId: any) {
+    this.loadingSlots =true;
     const condate = this.getInputValue(inputElement);
     this.getInputValue2(slotId);
     let slot: any = localStorage.getItem('booking_form');
@@ -264,24 +271,30 @@ export class SlotsComponent {
       date: this.selected_date,
       slot_id: this.selectedTimeId,
     };
-
-
-
+    
+   
     // slot request 
   
       this.dataService.post('/public/api/slot/slot_index',{ date: this.selected_date, id: this.selectedTimeId}, false)
         .subscribe((res: any) => {
           console.log(res);
           this.SlotsIndex = res;
-          // let newarr =  this.SlotsIndex.sort((a, b) => (a - b.index));
-          console.log(this.SlotsIndex);
-          
+          this.SlotsIndex.forEach(element => {
+           $('#'+element+'a').parent().empty().addClass('slot_box2');
+          });
+          this.loadingSlots = false
+
         });
   
     // slot request 
   
 
     localStorage.setItem('booking_form_with_date', JSON.stringify(data));
+    this.userData = localStorage.getItem('booking_form_with_date')
+    const josnDataP  =  JSON.parse(this.userData) ;
+
+    console.log(josnDataP.no_of_players);
+     this.totalPlayers = josnDataP.no_of_players ?? 0;
 
     this.modalService.open(content, {
       ariaLabelledBy: 'modal-basic-title',
@@ -349,6 +362,7 @@ export class SlotsComponent {
   toggle = false;
   booked = false;
   checkboxValue = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+  checkBoxChecked : any
 
   arryData: any = [];
   arrynumbers: any = [];
@@ -356,16 +370,17 @@ export class SlotsComponent {
 
   uncheckCheckbox(seat: any, i: any) {
     seat.checked = false;
-    seat.value = 'available';
+    seat.value = 'Available';
     this.selected = 'null';
     this.checkboxValue[i] = false;
-    this.arryData[i] = '';
+    this.arryData.splice(i, 1);
+    this.arrynumbers.splice(i, 1);
     console.log(this.arryData);
   }
 
   bookSlot(seat: any, i: any) {
-    if(this.name !== "" && this.number !== ""){
-      this.editIcon = true;
+    if(this.name !== "" && this.number !== ""){     
+    this.editIcon = true;
     seat.value = this.name;
     this.arryData[i] = this.name;
     this.arrynumbers[i] = this.number;
@@ -373,6 +388,26 @@ export class SlotsComponent {
     console.log(this.arrySlotIndex)
     this.booked = true;
     this.checkboxValue[i] = true;
+  
+
+    var arr= [];
+
+    for (let i = 0; i < this.arrynumbers.length; i++) {
+      if (this.arrynumbers[i] != undefined) {
+      arr.push({ player: 1 });
+      }
+    }
+
+
+
+     this.addedPlayers = arr.length
+
+     if(this.totalPlayers == this.addedPlayers){
+      
+     }
+
+
+
     setTimeout(() => {
       this.booked = false;
       this.selected = false;
@@ -387,6 +422,11 @@ export class SlotsComponent {
   // back to booking 
   backToForm(){
     this.data.emit('false');
-    console.log(this.data)
   }
+  
+
+
+
+  // disable Time Slots 
+
 }

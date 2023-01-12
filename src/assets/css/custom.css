@@ -1694,15 +1694,17 @@ ul.slots li {
 }
 ul.slots  li .slots{
   background-color: #4aff3e;
+  border-radius: 10px;
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 0.5s;
+  color: #000;
 }
 ul.slots li input:checked+.slots{
-  background-color: #CCc;
+  background-color: #545151f7;
   /* transform: scale(1.5); */
   padding: 0;
   z-index:1;
@@ -1713,22 +1715,29 @@ span.Edit {
   position: absolute;
   bottom: 11px;
   font-size: 13px;
-  color: #000;
+  color: #fff;
   border-bottom: 1px solid;
+  display: none;
 }
 
+ul.slots li input:checked+.slots+span{
+  display: block;
+  z-index: 1;
 
+}
 
 span.edit_icon {
   position: absolute;
   top: 0;
   right: 8px;
-  color: #000;
+  color: #fff;
+  display: none;
+  
 }
 
 
 .time-btn input.disabled+input+span {
-  background: #bd0f0f57;
+  background: #06992a57;
 }
 
 ul.slots li .input_field {
@@ -1761,19 +1770,29 @@ ul.slots li .input_field::before{
   border-radius: 9px;
 }
 
+ul.slots li > input:disabled + .slots {
+  background: #850000;
+}
+
+
+.error_border {
+  border: 1px solid red !important; 
+}
 
 .input_field button{
-  background-color: green;
   border: none;
   color: #fff;
   width: 100%;
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid;
   
 }
-.input_field .discard{
+/* .input_field .discard{
   background-color: #bd0f0f !important;
   border: none;
   color: #fff;
-}
+} */
 
 
 
