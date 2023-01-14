@@ -20,6 +20,9 @@ totalPrice = 0;
   userData:any;
   responseData: any;
   bookingConfirm = false
+  slotName : any
+  remainingTime : any;
+  config : any
 
 constructor(  private dataService: DataService){}
 
@@ -27,6 +30,7 @@ constructor(  private dataService: DataService){}
    this.getBookingDetails()
   //  this.sendData()
   this.bookingConfirm = false
+  
   }
 
   
@@ -37,7 +41,7 @@ constructor(  private dataService: DataService){}
     this.email  =   this.json_booking_final.email
     this.number  =   this.json_booking_final.phone_no
     this.date  =   this.json_booking_final.date
-    this.slot  =   this.json_booking_final.time_slot
+    this.slot  =   this.json_booking_final.slotName
     this.totalPrice = this.json_booking_final.player_info.length * 2500
   }
 
@@ -50,15 +54,27 @@ constructor(  private dataService: DataService){}
       date:  this.json_booking_final.date,
       time_slot: this.json_booking_final.time_slot,
       player_info: this.json_booking_final.player_info,
+      slot_name: this.json_booking_final.slotName
     };
-
-    // localStorage.clear();
+    console.log(data)
+    localStorage.clear();
     this.dataService.post('/public/api/slot_booked', data, false).subscribe((response) => {
       this.bookingConfirm = true
       this.responseData = response;
-      console.log(this.responseData)
+      this.remainingTime = this.responseData[0].hours
+      this.runTimer()
+      
     }); 
     }
+
+    runTimer(){
+      this.config = {
+        leftTime: this.remainingTime * 60 * 60,
+        template: '$!h!:!m!:!s!',
+        notify: [60, 30, 10, 5, 2, 1]
+      };
+    }
+
 
  
 

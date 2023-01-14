@@ -30,7 +30,7 @@ import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { LeaderboardPageComponent } from './leaderboard-page/leaderboard-page.component';
 import { ProceedFormComponent } from './proceed-form/proceed-form.component';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
-
+import { CountdownModule } from 'ngx-countdown';
  
 
 @NgModule({
@@ -74,6 +74,7 @@ import { FormsModule,ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     BrowserModule,
     ReactiveFormsModule,
+    CountdownModule
     
   
      

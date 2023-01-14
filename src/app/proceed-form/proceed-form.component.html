@@ -5,7 +5,8 @@
     
     <div class="theme_heading text-center">
         <h2 *ngIf="!bookingConfirm">Please Confirm Your Booking</h2>
-        <h2 *ngIf="bookingConfirm" style="color: green;">Thank You For Booking </h2>
+        <h2 *ngIf="bookingConfirm" style="color: green;">Thank You For Booking 
+            <p class="timer">Booking Expire In : <span><countdown [config]="config"></countdown></span></p></h2>
         <p *ngIf="bookingConfirm">Please Collect Your Tickets Before 4 hours of Match Start To Confirm Your Booking</p>
     </div>
 
@@ -91,8 +92,9 @@
                 <li>Email  : <span>{{responseData[0].email}}</span></li>
                 <li>Date  : <span>{{responseData[0].date}}</span></li>
                 <li>Slot  : <span>{{responseData[0].slot[0].name}}</span></li>
-                <li>Total : <span>{{totalPrice*responseData[0].no_of_players}}</span></li>
-                <li>Booking Expire On : <span>{{responseData[0].created_at}}</span></li>
+                <li>Total : <span>{{2500*responseData[0].no_of_players}}</span></li>
+                <li>Expires On : <span>{{responseData[0].exp_date}}</span></li>
+                <button routerLink="/home" class="theme_btn">Back to home </button>
             </ul>
 
         </div>

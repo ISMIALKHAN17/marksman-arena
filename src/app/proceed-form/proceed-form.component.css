@@ -29,7 +29,7 @@
 }
 
 .booking_details ul li span {
-    font-size: 14px;
+    font-size: 13px;
     padding-left: 10px;
     width: 64%;
 }
@@ -60,4 +60,16 @@
 }
 tr {
   border-bottom: 1px solid #FFF;
+}
+
+.timer{
+  font-size: 30px;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.timer span{
+  color: #bd0f0f;
+  font-family: 'Rajdhani';
 }

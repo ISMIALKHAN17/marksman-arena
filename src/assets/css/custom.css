@@ -1736,7 +1736,7 @@ span.edit_icon {
 }
 
 
-.time-btn input.disabled+input+span {
+.time-btn input.disabled+input+input+span {
   background: #06992a57;
 }
 
@@ -1786,7 +1786,14 @@ ul.slots li > input:disabled + .slots {
   background: transparent;
   border-radius: 5px;
   border: 1px solid;
-  
+  transition: 0.5s;
+}
+
+.input_field button:hover {
+  background: green;
+}
+.input_field .discard:hover{
+  background-color: #bd0f0f;
 }
 /* .input_field .discard{
   background-color: #bd0f0f !important;

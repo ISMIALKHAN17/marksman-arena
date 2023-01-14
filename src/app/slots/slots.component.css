@@ -95,14 +95,49 @@ span.close-btn {
   background-color: #545151f7 ;
 }
 .slot_box2:before{
-  content: 'Reserved';
+  content: 'Booked';
   position:absolute;
   color: #fff;
+  top: 2px;
 }
+
+.exp_date{
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+}
+
+.exp_date{
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  color: white;
+}
+
 .ptext p{
   font-size: 18px;
   text-align: left;
 }
 .ptext span:last-child p{
   text-align: right;
+}
+
+.valid {
+ border-color: green !important;
+}
+
+.invalid {
+ border-color: red !important;
+}
+
+.errr {
+  color: red;
+  text-align: center;
+}
+h3{
+  margin: 0;
+}
+
+.error .pastTime{
+  bottom: -64px;
 }
