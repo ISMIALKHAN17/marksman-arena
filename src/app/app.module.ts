@@ -31,6 +31,7 @@ import { LeaderboardPageComponent } from './leaderboard-page/leaderboard-page.co
 import { ProceedFormComponent } from './proceed-form/proceed-form.component';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { CountdownModule } from 'ngx-countdown';
+import { LoginComponent } from './login/login.component';
  
 
 @NgModule({
@@ -54,6 +55,7 @@ import { CountdownModule } from 'ngx-countdown';
     GalleryPageComponent,
     LeaderboardPageComponent,
     ProceedFormComponent,
+    LoginComponent,
     
   
     

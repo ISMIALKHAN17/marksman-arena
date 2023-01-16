@@ -10,7 +10,7 @@ import {
   providedIn: 'root'
 })
 export class DataService {
-  public global_url:any = "http://172.16.16.242/backend";
+  public global_url:any = "https://backend.marksman.pk";
 
  
   constructor(public http: HttpClient) {}

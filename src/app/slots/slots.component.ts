@@ -222,7 +222,7 @@ export class SlotsComponent {
 
   goToNextPage(pageName: string, content: any) {
 
-    if(this.addedPlayers > this.totalPlayers){
+    if(this.addedPlayers > this.totalPlayers || this.addedPlayers !== this.totalPlayers ){
      this.showLimitError= true;
     }
 
@@ -295,9 +295,9 @@ export class SlotsComponent {
           $('#' + element.index + 'a')
             .parent()
             .empty()
-            .addClass('slot_box2')
+            .addClass(`${element.status == 'Booked' ? 'slot_booked' : 'slot_box2'}`)
             .append(
-              `<span style="font-size: 15px;line-height: 1.2;text-align: center;padding-top: 19px;" >Expires at <span style="color:#4aff3e;padding-top:4px;font-size: 12px;">${element.exp_date}</span></span>`
+              `<span style="font-size: 15px;line-height: 1.2;text-align: center;padding-top: 19px;" >${element.status == "Booked" ? element.name :  'Expires at <span style="color:#4aff3e;padding-top:4px;font-size: 12px;">'+element.exp_date+'</span>'}</span>`
             );
         });
         this.loadingSlots = false;
@@ -415,24 +415,30 @@ export class SlotsComponent {
   submited = true;
 
   bookSlot(seat: any, i: any) {
-    if (this.name !== undefined && this.number !== undefined && this.number !== "" && this.name !== "") {
+    if (this.name !== undefined && this.name !== undefined && this.name !== "" && this.name !== "") {
       
       this.editIcon = true;
       seat.value = this.name;
       this.arryData[i] = this.name;
       this.arrynumbers[i] = this.number;
       this.arrySlotIndex[i] = i;
-      console.log(this.arrySlotIndex);
       this.booked = true;
       this.checkboxValue[i] = true;
       this.submited = true;
+      let a  = [];
+
+      console.log(this.arrynumbers.length);
       for (let i = 0; i < this.arrynumbers.length; i++) {
         if (this.arrynumbers[i] != undefined) {
-          this.addedPlayersArr.push({ player: 1 });
+          console.log(this.arrynumbers[i]);
+         
+           a.push({number:this.number[i] });
         }
       }
 
-      this.addedPlayers = this.addedPlayersArr.length;
+      this.addedPlayers = a.length;
+      // console.log(this.addedPlayersArr)
+      console.log(a)
 
 
       setTimeout(() => {

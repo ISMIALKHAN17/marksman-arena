@@ -73,3 +73,12 @@ tr {
   color: #bd0f0f;
   font-family: 'Rajdhani';
 }
+
+
+button.theme_btn {
+  padding: 14px;
+}
+
+#myElement{
+  display: none;
+}

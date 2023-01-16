@@ -1802,6 +1802,18 @@ ul.slots li > input:disabled + .slots {
 } */
 
 
+.slot_booked {
+  background: #bd0f0f;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot_booked span {
+  padding: 0 !important;
+  text-transform: capitalize;
+}
 
 @keyframes scale {
   0%{

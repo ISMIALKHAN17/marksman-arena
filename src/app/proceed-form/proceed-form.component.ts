@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators,FormGroup,FormBuilder,FormArray } from '@angular/forms';
 import { DataService } from '../services/data.service';
+ import * as jspdf from 'jspdf';
+ import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-proceed-form',
   templateUrl: './proceed-form.component.html',
@@ -76,7 +77,26 @@ constructor(  private dataService: DataService){}
     }
 
 
- 
+//  pdfSave(){
+//   let pdf = new jsPDF();
+//   pdf.html(<HTMLBodyElement>document.getElementById('myElement'), {
+//     callback: function (pdf) {
+//       pdf.save('screenshot.pdf');
+//     }
+//   });
+//  }
 
+
+ pdfSave(myElement:any)
+ {const printContent:any = document.getElementById("myElement");
+ const WindowPrt:any = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
+ WindowPrt.document.write(printContent.innerHTML);
+ WindowPrt.document.close();
+ WindowPrt.focus();
+ WindowPrt.print();
+//  WindowPrt.close();
+
+ }
+  
 }
-
+ 

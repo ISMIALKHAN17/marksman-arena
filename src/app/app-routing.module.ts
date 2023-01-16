@@ -8,6 +8,7 @@ import { EventsComponent } from './events/events.component';
 import { GalleryPageComponent } from './gallery-page/gallery-page.component';
 import { HomeComponent } from './home/home.component';
 import { LeaderboardPageComponent } from './leaderboard-page/leaderboard-page.component';
+import { LoginComponent } from './login/login.component';
 import { NewsEventsComponent } from './news-events/news-events.component';
 import { ProceedFormComponent } from './proceed-form/proceed-form.component';
 
@@ -44,7 +45,11 @@ const routes: Routes = [
   {path:'proceed-booking',component:ProceedFormComponent ,data: {
     headerText:'Players Info',
     bannerText:'This is proceed-booking Page'
-  }}
+  }},
+  {path:'login',component:LoginComponent ,data: {
+    headerText:'Players Info',
+    bannerText:'This is proceed-booking Page'
+  }},
 
 ];
 @NgModule({
@@ -52,4 +57,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents =  [BookingComponent,HomeComponent,BookingPageComponent,ComingSoonComponent,NewsEventsComponent,EventsComponent,GalleryPageComponent,LeaderboardPageComponent,ProceedFormComponent]
+export const routingComponents =  [BookingComponent,HomeComponent,BookingPageComponent,ComingSoonComponent,NewsEventsComponent,EventsComponent,GalleryPageComponent,LeaderboardPageComponent,ProceedFormComponent,LoginComponent]

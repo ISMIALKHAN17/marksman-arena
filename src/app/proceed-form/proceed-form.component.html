@@ -3,7 +3,7 @@
     <div class="container">
 
     
-    <div class="theme_heading text-center">
+    <div class="theme_heading text-center"  >
         <h2 *ngIf="!bookingConfirm">Please Confirm Your Booking</h2>
         <h2 *ngIf="bookingConfirm" style="color: green;">Thank You For Booking 
             <p class="timer">Booking Expire In : <span><countdown [config]="config"></countdown></span></p></h2>
@@ -33,7 +33,7 @@
                 </tr>
             </tbody>
         </table>
-
+      
         
 
     </div>
@@ -51,6 +51,7 @@
 
             <div class="d-flex justify-content-end">
                 <button class="theme_btn"  (click)="sendData()">Confirm Booking</button>
+                
             </div>
         </div>
     </div>
@@ -58,7 +59,7 @@
    <div class="row borderr" *ngIf="bookingConfirm">
     <div class="col-md-8 player_data">
         <h3>Players Details</h3>
-        <table>
+        <table >
             <thead>
                 <tr>
                     <th>#</th>
@@ -94,11 +95,61 @@
                 <li>Slot  : <span>{{responseData[0].slot[0].name}}</span></li>
                 <li>Total : <span>{{2500*responseData[0].no_of_players}}</span></li>
                 <li>Expires On : <span>{{responseData[0].exp_date}}</span></li>
+              <div class="d-flex align-items-center justify-content-between" style="gap: 10px;" >
                 <button routerLink="/home" class="theme_btn">Back to home </button>
+                <button (click)="pdfSave('myElement')" class="theme_btn">Download PDF <i class="fa-sharp fa-solid fa-file-arrow-down"></i></button>
+              </div>
             </ul>
 
         </div>
     </div>
    </div>
 </div>
+
 </section>
+
+<div id="myElement" *ngIf="bookingConfirm" >
+    <div style="display: flex;  color: #000;font-family: sans-serif;">
+        <div style="width: 70%;">
+            <table style="width: 90%;">
+                <h2>Players Details</h2>
+                <thead>
+                    <tr style="text-align: left;">
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let player of json_booking_final.player_info;index as i">
+                        <td style="vertical-align: baseline; border-bottom: 1px solid #000; margin-bottom: 5px;">{{i+1}}</td>
+                        <td style="vertical-align: baseline; border-bottom: 1px solid #000; margin-bottom: 5px;">{{player.player}}</td>
+                        <td style="vertical-align: baseline; border-bottom: 1px solid #000; margin-bottom: 5px;">{{player.number}}</td>
+                        <td style="vertical-align: baseline; border-bottom: 1px solid #000; margin-bottom: 5px;">{{price}}</td>
+                    
+                      
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    <div style="width: 30%;">
+        <h2>Booking Details </h2>
+        <ul style="list-style: none; padding: 0; ">
+            <li style="display: flex; justify-content: space-between; font-weight: 400; font-size: 14px; border-bottom: 1px solid #000; margin-bottom: 5px; ">Booking ID  : <span style="font-size: 10px; text-align: left;">#{{responseData[0].id}}</span></li>
+            <li style="display: flex; justify-content: space-between; font-weight: 400; font-size: 14px; border-bottom: 1px solid #000; margin-bottom: 5px; ">Name  : <span style="font-size: 10px; text-align: left;">{{responseData[0].name}}</span></li>
+            <li style="display: flex; justify-content: space-between; font-weight: 400; font-size: 14px; border-bottom: 1px solid #000; margin-bottom: 5px; ">Number  : <span style="font-size: 10px; text-align: left;">{{responseData[0].phone_no}}</span></li>
+            <li style="display: flex; justify-content: space-between; font-weight: 400; font-size: 14px; border-bottom: 1px solid #000; margin-bottom: 5px; ">Email  : <span style="font-size: 10px; text-align: left;">{{responseData[0].email}}</span></li>
+            <li style="display: flex; justify-content: space-between; font-weight: 400; font-size: 14px; border-bottom: 1px solid #000; margin-bottom: 5px; ">Date  : <span style="font-size: 10px; text-align: left;">{{responseData[0].date}}</span></li>
+            <li style="display: flex; justify-content: space-between; font-weight: 400; font-size: 14px; border-bottom: 1px solid #000; margin-bottom: 5px; ">Slot  : <span style="font-size: 10px; text-align: left;">{{responseData[0].slot[0].name}}</span></li>
+            <li style="display: flex; justify-content: space-between; font-weight: 400; font-size: 14px; border-bottom: 1px solid #000; margin-bottom: 5px; ">Total : <span style="font-size: 10px; text-align: left;">{{2500*responseData[0].no_of_players}}</span></li>
+            <li style="display: flex; justify-content: space-between; font-weight: 400; font-size: 14px; border-bottom: 1px solid #000; margin-bottom: 5px; ">Expires On : <span style="font-size: 10px; text-align: left;">{{responseData[0].exp_date}}</span></li>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+
+
